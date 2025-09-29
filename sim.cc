@@ -199,7 +199,6 @@ static bool cache_access(cache_t *c, metrics_t *M, uint32_t addr, bool is_write,
     return false;
 }
 
-
 /* ===== pretty printing ===== */
 
 static void print_cache_contents(const char *title, cache_t *c) {
