@@ -14,12 +14,16 @@ public:
           uint32_t block_bytes,
           Cache* next_level = nullptr);
 
-    // Demand access from upper level (or CPU for L1)
-    // Implements WBWA + LRU
-    // Returns true if hit
+    // Demand access from upper level (CPU for L1)
+    // WBWA + LRU. Returns true if hit.
     bool access(uint32_t addr, Op op);
 
-    // Dump MRU -> LRU  per set
+    // Upper-level evicted a dirty line -> write it here.
+    // Policy we want: count as a write, no extra memory read,
+    // don't bump MRU on hit, install at LRU on miss.
+    bool writeback(uint32_t addr);
+
+    // Dump MRU -> LRU per set
     void print_contents(const std::string& title) const;
 
     // Stats getters
@@ -55,9 +59,9 @@ private:
 
     // Stats
     uint64_t rd=0, rmiss=0, wr=0, wmiss=0, wbs=0;
-    uint64_t mem_rd=0, mem_wr=0; // Increment at last level
+    uint64_t mem_rd=0, mem_wr=0; // increment only at last level
 
-    // Helper func.
+    // Helpers
     inline uint32_t idx_of(uint32_t addr)  const { return (addr >> offset_bits) & index_mask; }
     inline uint32_t tag_of(uint32_t addr)  const { return  (addr >> (offset_bits + index_bits)); }
     inline uint32_t blk_addr(uint32_t tag, uint32_t idx) const {
@@ -66,11 +70,11 @@ private:
 
     typename Set::iterator find(Set& s, uint32_t tag);
 
-    // Miss handling: fetch from next/memory and allocate; maybe evict victim??
+    // Miss handling for demand access: fetch from next/memory and allocate
     void fill_on_miss(uint32_t addr, Op op, uint32_t idx, uint32_t tag);
-    
+
     // Evict LRU if needed; if dirty, propagate writeback downstream
-    void maybe_evict_and_insert(uint32_t idx, const Line& newline);
+    void evict_victim_and_propagate(uint32_t idx);
 };
 
 #endif

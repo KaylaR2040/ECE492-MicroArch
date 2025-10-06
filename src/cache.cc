@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <iostream>
 
-static inline uint32_t ilog2(uint32_t x) { 
+static inline uint32_t ilog2(uint32_t x) {
     uint32_t n = 0;
     while (x > 1) { x >>= 1; ++n; }
     return n;
@@ -16,13 +16,14 @@ Cache::Cache(uint32_t size_bytes,
              Cache* next_level)
     : sizeB(size_bytes), ways(assoc), blkB(block_bytes), next(next_level)
 {
-    assert(blkB > 0 && (blkB & (blkB - 1)) == 0);    // BLOCKSIZE
+    // Basic geometry checks. Size/assoc can be "weird"; #sets must be pow2.
+    assert(blkB > 0 && (blkB & (blkB - 1)) == 0);       // BLOCKSIZE is pow2
     assert(sizeB > 0 && ways > 0);
-    assert((sizeB % blkB) == 0);                      // whole blocks
-    assert(((sizeB / blkB) % ways) == 0);             // whole sets
+    assert((sizeB % blkB) == 0);                        // whole blocks
+    assert(((sizeB / blkB) % ways) == 0);               // whole sets
 
     nsets = (sizeB / blkB) / ways;
-    assert(nsets >= 1 && (nsets & (nsets - 1)) == 0); // SETS pow2
+    assert(nsets >= 1 && (nsets & (nsets - 1)) == 0);   // SETS pow2
 
     offset_bits = ilog2(blkB);
     index_bits  = ilog2(nsets);
@@ -43,66 +44,94 @@ bool Cache::access(uint32_t addr, Op op) {
     uint32_t tag = tag_of(addr);
     Set& s = sets[idx];
 
-    // classify op
+    // Count the op at this level (this is a *demand* access).
     if (op == Op::Read) ++rd; else ++wr;
 
     auto it = find(s, tag);
     if (it != s.end()) {
-        // HIT
-        // Move to MRU
+        // Demand hit: move to MRU; if write, mark dirty.
         Line line = *it;
         s.erase(it);
-        // If write, mark dirty
         if (op == Op::Write) line.dirty = true;
-        s.push_front(line);
+        s.push_front(line); // MRU
         return true;
     }
 
-    // MISS
+    // Demand miss: tally and fetch/fill
     if (op == Op::Read) ++rmiss; else ++wmiss;
     fill_on_miss(addr, op, idx, tag);
     return false;
 }
 
 void Cache::fill_on_miss(uint32_t addr, Op op, uint32_t idx, uint32_t tag) {
-    // 1. Fetch the block from next level or memory
+    // Demand miss always fetches from next level (or memory).
     if (next) {
-        next->access(addr, Op::Read); // always read to fill
+        next->access(addr, Op::Read); // lower level will count its own stats
     } else {
-        ++mem_rd;
+        ++mem_rd;                     // last level goes to memory
     }
 
-    // 2. Allocate in this cache (WBWA)
+    // Allocate here, WBWA, demand fills come in hot -> MRU
+    // Evict first if needed (and propagate dirty victim)
+    if (sets[idx].size() >= ways) {
+        evict_victim_and_propagate(idx);
+    }
+
     Line newline;
     newline.valid = true;
     newline.dirty = (op == Op::Write);
     newline.tag   = tag;
 
-    maybe_evict_and_insert(idx, newline);
+    sets[idx].push_front(newline); // MRU for demand fills
 }
 
-void Cache::maybe_evict_and_insert(uint32_t idx, const Line& newline) {
+bool Cache::writeback(uint32_t addr) {
+    // Upper level writes a full dirty block to us. No memory-read to install.
+    ++wr; // this is still a "write" to this level
+    uint32_t idx = idx_of(addr);
+    uint32_t tag = tag_of(addr);
     Set& s = sets[idx];
 
-    if (s.size() >= ways) {
-        // Evict LRU (back)
-        Line victim = s.back();
-        s.pop_back();
-        if (victim.valid && victim.dirty) {
-            ++wbs; // writeback out of THIS cache level
-            uint32_t victim_addr = blk_addr(victim.tag, idx);
-            if (next) {
-                // Propagate writeback downstream
-                next->access(victim_addr, Op::Write);
-            } else {
-                // Last level: write to memory
-                ++mem_wr;
-            }
-        }
+    auto it = find(s, tag);
+    if (it != s.end()) {
+        // Hit on writeback: mark dirty but don't bump MRU (not a CPU demand)
+        it->dirty = true;
+        return true;
     }
 
-    // Insert \n as MRU
-    s.push_front(newline);
+    // Miss on writeback: we install without reading memory (we got the data)
+    ++wmiss;
+
+    if (s.size() >= ways) {
+        evict_victim_and_propagate(idx);
+    }
+
+    Line newline;
+    newline.valid = true;
+    newline.dirty = true;  // obviously dirty (we're writing it back)
+    newline.tag   = tag;
+
+    // Writebacks are "cold" here -> insert at LRU (tail). This matches common refs.
+    s.push_back(newline);
+    return false;
+}
+
+void Cache::evict_victim_and_propagate(uint32_t idx) {
+    Set& s = sets[idx];
+    // Evict LRU
+    Line victim = s.back();
+    s.pop_back();
+    if (victim.valid && victim.dirty) {
+        ++wbs; // writeback out of THIS cache
+        uint32_t victim_addr = blk_addr(victim.tag, idx);
+        if (next) {
+            // Hand the dirty block down as a writeback (no memory read in next level either)
+            next->writeback(victim_addr);
+        } else {
+            // Last level: write to memory
+            ++mem_wr;
+        }
+    }
 }
 
 void Cache::print_contents(const std::string& title) const {
@@ -110,7 +139,7 @@ void Cache::print_contents(const std::string& title) const {
     for (uint32_t i = 0; i < nsets; ++i) {
         const Set& s = sets[i];
         std::cout << "set " << std::setw(6) << std::right << i << ":";
-        // MRU to LRU
+        // MRU -> LRU
         if (s.empty()) { std::cout << "\n"; continue; }
         for (auto it = s.begin(); it != s.end(); ++it) {
             if (!it->valid) continue;

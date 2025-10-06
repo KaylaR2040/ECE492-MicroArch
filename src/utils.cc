@@ -18,54 +18,38 @@ bool parse_args(int argc, char* argv[], CacheParams& P, std::string& err) {
     P.PREF_M    = (uint32_t) std::stoul(argv[7]);
     P.trace_file = argv[8];
 
-    // 1. BLOCKSIZE must be a power of 2
-    if (!is_pow2(P.BLOCKSIZE)) {
-        err = "BLOCKSIZE must be a power of two.";
-        return false;
-    }
+    // 1) BLOCKSIZE must be power-of-two
+    if (!is_pow2(P.BLOCKSIZE)) { err = "BLOCKSIZE must be a power of two."; return false; }
 
-    // 2.  L1 geometry: assoc >=1; size needs to be mult of (block*assoc); sets pow2
+    // 2) L1: size must be multiple of (block * assoc); #sets is power-of-two
     if (P.L1_ASSOC == 0) { err = "L1_ASSOC must be >= 1."; return false; }
     if (P.L1_SIZE == 0 || (P.L1_SIZE % (P.BLOCKSIZE * P.L1_ASSOC)) != 0) {
-        err = "L1 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC.";
-        return false;
+        err = "L1 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC."; return false;
     }
     uint32_t l1_sets = (P.L1_SIZE / P.BLOCKSIZE) / P.L1_ASSOC;
-    if (!is_pow2(l1_sets)) {
-        err = "L1 number of sets must be a power of two.";
-        return false;
-    }
+    if (!is_pow2(l1_sets)) { err = "L1 number of sets must be a power of two."; return false; }
 
-    // 3. L2 geometry (if enabled): assoc >=1; size multiple; sets pow2
+    // 3) L2 (if present)
     if (P.L2_SIZE == 0) {
-        if (P.L2_ASSOC != 0) {
-            err = "If L2_SIZE is 0, L2_ASSOC must be 0.";
-            return false;
-        }
+        if (P.L2_ASSOC != 0) { err = "If L2_SIZE is 0, L2_ASSOC must be 0."; return false; }
     } else {
         if (P.L2_ASSOC == 0) { err = "L2_ASSOC must be >= 1."; return false; }
         if ((P.L2_SIZE % (P.BLOCKSIZE * P.L2_ASSOC)) != 0) {
-            err = "L2 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC.";
-            return false;
+            err = "L2 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC."; return false;
         }
         uint32_t l2_sets = (P.L2_SIZE / P.BLOCKSIZE) / P.L2_ASSOC;
-        if (!is_pow2(l2_sets)) {
-            err = "L2 number of sets must be a power of two.";
-            return false;
-        }
+        if (!is_pow2(l2_sets)) { err = "L2 number of sets must be a power of two."; return false; }
     }
-
     return true;
 }
 
 bool open_trace(const std::string& path, FILE*& fp) {
-    fp = std::fopen(path.c_str(), "r"); // read-only GRADESCOPE
+    fp = std::fopen(path.c_str(), "r"); // read-only (Gradescope restriction)
     return fp != nullptr;
 }
 
 bool read_trace_line(FILE* fp, Op& op, uint32_t& addr) {
-    char c;                // <- was int; must be char for "%c"
-    unsigned a;            // KR: REMEMBER "%x" expects unsigned int*
+    char c; unsigned a;
     int n = std::fscanf(fp, " %c %x", &c, &a);
     if (n == 2) {
         op = (c == 'r' || c == 'R') ? Op::Read : Op::Write;
@@ -87,38 +71,60 @@ void print_config(const CacheParams& P) {
     std::cout << "trace_file: " << P.trace_file << "\n\n";
 }
 
-static inline double miss_rate(uint64_t r_miss, uint64_t w_miss,
-                               uint64_t r, uint64_t w) {
+// L1 miss rate = overall (read+write) miss rate, per assignment
+static inline double l1_miss_rate(uint64_t r_miss, uint64_t w_miss,
+                                  uint64_t r, uint64_t w) {
     const double denom = double(r + w);
     if (denom == 0.0) return 0.0;
     return double(r_miss + w_miss) / denom;
 }
 
+// L2 miss rate = demand *read* miss rate (no writes/prefetch in denom)
+static inline double l2_miss_rate(uint64_t rd_miss, uint64_t rd) {
+    if (rd == 0) return 0.0;
+    return double(rd_miss) / double(rd);
+}
+
 void print_results(const Cache& L1, const Cache* L2) {
-    // Content already printed by caller    
-    // Output Stats:
-    std::cout << "===== Simulation results (raw) =====\n";
-    std::cout << "L1_reads:          " << L1.reads()        << "\n";
-    std::cout << "L1_read_misses:    " << L1.read_misses()  << "\n";
-    std::cout << "L1_writes:         " << L1.writes()       << "\n";
-    std::cout << "L1_write_misses:   " << L1.write_misses() << "\n";
-    std::cout << "L1_miss_rate:      " << std::fixed << std::setprecision(4)
-              << miss_rate(L1.read_misses(), L1.write_misses(), L1.reads(), L1.writes()) << "\n";
+    // Print the exact labels the grader wants (letters a.–q.).
+    std::cout << "===== Measurements =====\n";
+
+    // a–g: L1
+    std::cout << "a. L1 reads:                   " << L1.reads()        << "\n";
+    std::cout << "b. L1 read misses:             " << L1.read_misses()  << "\n";
+    std::cout << "c. L1 writes:                  " << L1.writes()       << "\n";
+    std::cout << "d. L1 write misses:            " << L1.write_misses() << "\n";
+    std::cout << "e. L1 miss rate:               " << std::fixed << std::setprecision(4)
+              << l1_miss_rate(L1.read_misses(), L1.write_misses(), L1.reads(), L1.writes()) << "\n";
     std::cout.unsetf(std::ios::floatfield);
-    std::cout << "L1_writebacks:     " << L1.writebacks()   << "\n";
+    std::cout << "f. L1 writebacks:              " << L1.writebacks()   << "\n";
+    std::cout << "g. L1 prefetches:              0\n";
 
     if (L2) {
-        std::cout << "L2_reads:          " << L2->reads()        << "\n";
-        std::cout << "L2_read_misses:    " << L2->read_misses()  << "\n";
-        std::cout << "L2_writes:         " << L2->writes()       << "\n";
-        std::cout << "L2_write_misses:   " << L2->write_misses() << "\n";
-        std::cout << "L2_miss_rate:      " << std::fixed << std::setprecision(4)
-                  << miss_rate(L2->read_misses(), L2->write_misses(), L2->reads(), L2->writes()) << "\n";
+        // h–o: L2 demand/pretech split (prefetch=0 for 463)
+        std::cout << "h. L2 reads (demand):          " << L2->reads()        << "\n";
+        std::cout << "i. L2 read misses (demand):    " << L2->read_misses()  << "\n";
+        std::cout << "j. L2 reads (prefetch):        0\n";
+        std::cout << "k. L2 read misses (prefetch):  0\n";
+        std::cout << "l. L2 writes:                  " << L2->writes()       << "\n";
+        std::cout << "m. L2 write misses:            " << L2->write_misses() << "\n";
+        std::cout << "n. L2 miss rate:               " << std::fixed << std::setprecision(4)
+                  << l2_miss_rate(L2->read_misses(), L2->reads()) << "\n";
         std::cout.unsetf(std::ios::floatfield);
-        std::cout << "L2_writebacks:     " << L2->writebacks()   << "\n";
-        std::cout << "memory_traffic:    " << (L2->memory_reads() + L2->memory_writes()) << "\n";
+        std::cout << "o. L2 writebacks:              " << L2->writebacks()   << "\n";
+        std::cout << "p. L2 prefetches:              0\n";
+        std::cout << "q. memory traffic:             " << (L2->memory_reads() + L2->memory_writes()) << "\n";
     } else {
-        std::cout << "memory_traffic:    " << (L1.memory_reads() + L1.memory_writes()) << "\n";
+        // No L2 present
+        std::cout << "h. L2 reads (demand):          0\n";
+        std::cout << "i. L2 read misses (demand):    0\n";
+        std::cout << "j. L2 reads (prefetch):        0\n";
+        std::cout << "k. L2 read misses (prefetch):  0\n";
+        std::cout << "l. L2 writes:                  0\n";
+        std::cout << "m. L2 write misses:            0\n";
+        std::cout << "n. L2 miss rate:               0.0000\n";
+        std::cout << "o. L2 writebacks:              0\n";
+        std::cout << "p. L2 prefetches:              0\n";
+        std::cout << "q. memory traffic:             " << (L1.memory_reads() + L1.memory_writes()) << "\n";
     }
-    std::cout << "\n";
 }
