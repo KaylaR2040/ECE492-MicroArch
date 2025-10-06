@@ -26,8 +26,10 @@ bool parse_args(int argc, char* argv[], CacheParams& P, std::string& err) {
     if (P.L1_SIZE == 0 || (P.L1_SIZE % (P.BLOCKSIZE * P.L1_ASSOC)) != 0) {
         err = "L1 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC."; return false;
     }
-    uint32_t l1_sets = (P.L1_SIZE / P.BLOCKSIZE) / P.L1_ASSOC;
-    if (!is_pow2(l1_sets)) { err = "L1 number of sets must be a power of two."; return false; }
+    {
+        uint32_t l1_sets = (P.L1_SIZE / P.BLOCKSIZE) / P.L1_ASSOC;
+        if (!is_pow2(l1_sets)) { err = "L1 number of sets must be a power of two."; return false; }
+    }
 
     // 3) L2 (if present)
     if (P.L2_SIZE == 0) {
@@ -86,7 +88,7 @@ static inline double l2_miss_rate(uint64_t rd_miss, uint64_t rd) {
 }
 
 void print_results(const Cache& L1, const Cache* L2) {
-    // Print the exact labels the grader wants (letters a.–q.).
+    // Print the exact labels/spacing the grader uses.
     std::cout << "===== Measurements =====\n";
 
     // a–g: L1
@@ -101,7 +103,7 @@ void print_results(const Cache& L1, const Cache* L2) {
     std::cout << "g. L1 prefetches:              0\n";
 
     if (L2) {
-        // h–o: L2 demand/pretech split (prefetch=0 for 463)
+        // h–o: L2 demand/prefetch split (prefetch=0 for this project)
         std::cout << "h. L2 reads (demand):          " << L2->reads()        << "\n";
         std::cout << "i. L2 read misses (demand):    " << L2->read_misses()  << "\n";
         std::cout << "j. L2 reads (prefetch):        0\n";

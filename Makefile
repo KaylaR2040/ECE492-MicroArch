@@ -1,18 +1,20 @@
 CXX := g++
 CXXFLAGS := -std=c++14 -O3 -Wall -Wextra -Wpedantic
 
-SRC_DIR := src
-OBJ := $(SRC_DIR)/main.o $(SRC_DIR)/cache.o $(SRC_DIR)/utils.o
-DEPS := $(SRC_DIR)/sim.h $(SRC_DIR)/cache.h $(SRC_DIR)/utils.h
+SRC := src/main.cc src/cache.cc src/utils.cc
+OBJ := $(SRC:.cc=.o)
 
-.PHONY: all clean
 all: sim
 
 sim: $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJ)
 
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.cc $(DEPS)
+src/%.o: src/%.cc src/%.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+src/main.o: src/main.cc src/sim.h src/cache.h src/utils.h
+src/cache.o: src/cache.cc src/cache.h src/sim.h
+src/utils.o: src/utils.cc src/utils.h src/sim.h src/cache.h
+
 clean:
-	rm -f $(SRC_DIR)/*.o sim
+	rm -f src/*.o sim

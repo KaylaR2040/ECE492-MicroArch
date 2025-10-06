@@ -20,17 +20,24 @@ int main(int argc, char* argv[]) {
     print_config(P);
 
     // Build hierarchy
-    Cache L1(P.L1_SIZE, P.L1_ASSOC, P.BLOCKSIZE, nullptr);
+    // L1 policy: typical (promote on hits, demand fills to MRU, WB-miss to MRU)
+    Cache L1(P.L1_SIZE, P.L1_ASSOC, P.BLOCKSIZE, nullptr,
+             Cache::Policy{/*demand_hit_promote*/true, /*demand_miss_to_mru*/true,
+                           /*wb_hit_promote*/false,    /*wb_miss_to_mru*/true});
+
     Cache* L2ptr = nullptr;
-    Cache L2_dummy(1,1,1,nullptr); 
+    Cache L2_dummy(1,1,1,nullptr); // harmless placeholder
 
     if (P.L2_SIZE > 0) {
-        L2_dummy = Cache(P.L2_SIZE, P.L2_ASSOC, P.BLOCKSIZE, nullptr);
+        L2_dummy = Cache(P.L2_SIZE, P.L2_ASSOC, P.BLOCKSIZE, nullptr,
+                         // L2 policy: **no promote on demand hit**; everything else like L1
+                         Cache::Policy{/*demand_hit_promote*/false, /*demand_miss_to_mru*/true,
+                                       /*wb_hit_promote*/false,      /*wb_miss_to_mru*/true});
         L2ptr = &L2_dummy;
         L1.set_next(L2ptr);
     }
 
-    // Drive simu
+    // Drive simulation
     Op op; uint32_t addr;
     while (read_trace_line(fp, op, addr)) {
         L1.access(addr, op);

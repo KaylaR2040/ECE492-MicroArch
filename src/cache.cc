@@ -1,6 +1,5 @@
 #include "cache.h"
 #include <cassert>
-#include <cmath>
 #include <iomanip>
 #include <iostream>
 
@@ -10,25 +9,21 @@ static inline uint32_t ilog2(uint32_t x) {
     return n;
 }
 
-Cache::Cache(uint32_t size_bytes,
-             uint32_t assoc,
-             uint32_t block_bytes,
-             Cache* next_level)
-    : sizeB(size_bytes), ways(assoc), blkB(block_bytes), next(next_level)
-{
-    // Basic geometry checks. Size/assoc can be "weird"; #sets must be pow2.
-    assert(blkB > 0 && (blkB & (blkB - 1)) == 0);       // BLOCKSIZE is pow2
+void Cache::init_geometry() {
+    // Basic geometry checks. SIZE/ASSOC can be “weird”; sets must be pow2.
+    assert(blkB > 0 && (blkB & (blkB - 1)) == 0);         // BLOCKSIZE is pow2
     assert(sizeB > 0 && ways > 0);
-    assert((sizeB % blkB) == 0);                        // whole blocks
-    assert(((sizeB / blkB) % ways) == 0);               // whole sets
+    assert((sizeB % blkB) == 0);                          // whole blocks
+    assert(((sizeB / blkB) % ways) == 0);                 // whole sets
 
     nsets = (sizeB / blkB) / ways;
-    assert(nsets >= 1 && (nsets & (nsets - 1)) == 0);   // SETS pow2
+    assert(nsets >= 1 && (nsets & (nsets - 1)) == 0);     // #sets is pow2
 
     offset_bits = ilog2(blkB);
     index_bits  = ilog2(nsets);
     index_mask  = (index_bits == 0) ? 0 : ((1u << index_bits) - 1);
 
+    sets.clear();
     sets.resize(nsets);
 }
 
@@ -48,14 +43,13 @@ bool Cache::access(uint32_t addr, Op op) {
 
     auto it = find(s, tag);
     if (it != s.end()) {
-        // Demand hit: usually promote to MRU
-        if (DEMAND_HIT_PROMOTE) {
+        // Demand hit
+        if (op == Op::Write) it->dirty = true;
+        if (policy.demand_hit_promote) {
+            // Move-to-front (MRU)
             Line line = *it;
             s.erase(it);
-            if (op == Op::Write) line.dirty = true;
             s.push_front(line);
-        } else {
-            if (op == Op::Write) it->dirty = true;
         }
         return true;
     }
@@ -76,8 +70,8 @@ bool Cache::access(uint32_t addr, Op op) {
     newline.dirty = (op == Op::Write);
     newline.tag   = tag;
 
-    if (DEMAND_MISS_TO_MRU) s.push_front(newline);
-    else                    s.push_back(newline);
+    if (policy.demand_miss_to_mru) s.push_front(newline);
+    else                           s.push_back(newline);
     return false;
 }
 
@@ -89,9 +83,9 @@ bool Cache::writeback(uint32_t addr) {
 
     auto it = find(s, tag);
     if (it != s.end()) {
-        // Hit on WB: mark dirty, usually no MRU promote
+        // Writeback hit: mark dirty; typically no MRU bump
         it->dirty = true;
-        if (WB_HIT_PROMOTE) {
+        if (policy.wb_hit_promote) {
             Line line = *it;
             s.erase(it);
             s.push_front(line);
@@ -99,7 +93,7 @@ bool Cache::writeback(uint32_t addr) {
         return true;
     }
 
-    // Miss on WB: no memory read needed; just install (dirty)
+    // Writeback miss: allocate dirty line; no extra memory read.
     ++wmiss;
     if (s.size() >= ways) evict_victim_and_propagate(idx);
 
@@ -108,32 +102,9 @@ bool Cache::writeback(uint32_t addr) {
     newline.dirty = true;
     newline.tag   = tag;
 
-    // <-- main change: writeback miss installs at MRU
-    if (WB_MISS_TO_MRU) s.push_front(newline);
-    else                s.push_back(newline);
+    if (policy.wb_miss_to_mru) s.push_front(newline);
+    else                       s.push_back(newline);
     return false;
-}
-
-void Cache::fill_on_miss(uint32_t addr, Op op, uint32_t idx, uint32_t tag) {
-    // Demand miss always fetches from next level (or memory).
-    if (next) {
-        next->access(addr, Op::Read); // lower level will count its own stats
-    } else {
-        ++mem_rd;                     // last level goes to memory
-    }
-
-    // Allocate here, WBWA, demand fills come in hot -> MRU
-    // Evict first if needed (and propagate dirty victim)
-    if (sets[idx].size() >= ways) {
-        evict_victim_and_propagate(idx);
-    }
-
-    Line newline;
-    newline.valid = true;
-    newline.dirty = (op == Op::Write);
-    newline.tag   = tag;
-
-    sets[idx].push_front(newline); // MRU for demand fills
 }
 
 void Cache::evict_victim_and_propagate(uint32_t idx) {
@@ -145,10 +116,10 @@ void Cache::evict_victim_and_propagate(uint32_t idx) {
         ++wbs; // writeback out of THIS cache
         uint32_t victim_addr = blk_addr(victim.tag, idx);
         if (next) {
-            // Hand the dirty block down as a writeback (no memory read in next level either)
+            // Hand dirty block down (no memory read at next level either)
             next->writeback(victim_addr);
         } else {
-            // Last level: write to memory
+            // Last level → memory
             ++mem_wr;
         }
     }
