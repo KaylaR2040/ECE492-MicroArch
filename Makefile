@@ -1,45 +1,18 @@
-CC = g++
-OPT = -O3
-#OPT = -g
-WARN = -Wall
-CFLAGS = $(OPT) $(WARN) $(INC) $(LIB)
+CXX := g++
+CXXFLAGS := -std=c++14 -O3 -Wall -Wextra -Wpedantic
 
-# List all your .c files here (source files, excluding header files)
-SIM_SRC = sim.c
+SRC_DIR := src
+OBJ := $(SRC_DIR)/main.o $(SRC_DIR)/cache.o $(SRC_DIR)/utils.o
+DEPS := $(SRC_DIR)/sim.h $(SRC_DIR)/cache.h $(SRC_DIR)/utils.h
 
-# List corresponding compiled object files here (.o files)
-SIM_OBJ = sim.o
- 
-#################################
-
-# default rule
-
+.PHONY: all clean
 all: sim
-	@echo "my work is done here..."
 
+sim: $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJ)
 
-# rule for making sim
-
-sim: $(SIM_OBJ)
-	$(CC) -o sim $(CFLAGS) $(SIM_OBJ) -lm
-	@echo "-----------DONE WITH sim-----------"
-
-
-# generic rule for converting any .c file to any .o file
- 
-.c.o:
-	$(CC) $(CFLAGS) -c $*.c
-
-
-# type "make clean" to remove all .o files plus the sim binary
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.cc $(DEPS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o sim
-
-
-# type "make clobber" to remove all .o files (leaves sim binary)
-
-clobber:
-	rm -f *.o
-
-
+	rm -f $(SRC_DIR)/*.o sim
