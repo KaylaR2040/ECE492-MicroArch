@@ -47,6 +47,12 @@ private:
     };
     using Set = std::list<Line>;
 
+    // Policy constants
+    static constexpr bool DEMAND_HIT_PROMOTE     = true;  // CPU hits go MRU
+    static constexpr bool DEMAND_MISS_TO_MRU     = true;  // demand fills go MRU
+    static constexpr bool WB_HIT_PROMOTE         = false; // writeback hits don't promote
+    static constexpr bool WB_MISS_TO_MRU         = true;  // writeback fills go MRU  <-- key change
+
     // Config
     uint32_t sizeB, ways, blkB;
     uint32_t nsets, offset_bits, index_bits, index_mask;

@@ -44,22 +44,73 @@ bool Cache::access(uint32_t addr, Op op) {
     uint32_t tag = tag_of(addr);
     Set& s = sets[idx];
 
-    // Count the op at this level (this is a *demand* access).
     if (op == Op::Read) ++rd; else ++wr;
 
     auto it = find(s, tag);
     if (it != s.end()) {
-        // Demand hit: move to MRU; if write, mark dirty.
-        Line line = *it;
-        s.erase(it);
-        if (op == Op::Write) line.dirty = true;
-        s.push_front(line); // MRU
+        // Demand hit: usually promote to MRU
+        if (DEMAND_HIT_PROMOTE) {
+            Line line = *it;
+            s.erase(it);
+            if (op == Op::Write) line.dirty = true;
+            s.push_front(line);
+        } else {
+            if (op == Op::Write) it->dirty = true;
+        }
         return true;
     }
 
-    // Demand miss: tally and fetch/fill
+    // Demand miss
     if (op == Op::Read) ++rmiss; else ++wmiss;
-    fill_on_miss(addr, op, idx, tag);
+
+    // Fetch from next or memory
+    if (next) next->access(addr, Op::Read);
+    else      ++mem_rd;
+
+    // Evict if needed (propagate dirty victim)
+    if (s.size() >= ways) evict_victim_and_propagate(idx);
+
+    // Install demand fill (WBWA; writes come in dirty)
+    Line newline;
+    newline.valid = true;
+    newline.dirty = (op == Op::Write);
+    newline.tag   = tag;
+
+    if (DEMAND_MISS_TO_MRU) s.push_front(newline);
+    else                    s.push_back(newline);
+    return false;
+}
+
+bool Cache::writeback(uint32_t addr) {
+    ++wr; // it's a write to this level
+    uint32_t idx = idx_of(addr);
+    uint32_t tag = tag_of(addr);
+    Set& s = sets[idx];
+
+    auto it = find(s, tag);
+    if (it != s.end()) {
+        // Hit on WB: mark dirty, usually no MRU promote
+        it->dirty = true;
+        if (WB_HIT_PROMOTE) {
+            Line line = *it;
+            s.erase(it);
+            s.push_front(line);
+        }
+        return true;
+    }
+
+    // Miss on WB: no memory read needed; just install (dirty)
+    ++wmiss;
+    if (s.size() >= ways) evict_victim_and_propagate(idx);
+
+    Line newline;
+    newline.valid = true;
+    newline.dirty = true;
+    newline.tag   = tag;
+
+    // <-- main change: writeback miss installs at MRU
+    if (WB_MISS_TO_MRU) s.push_front(newline);
+    else                s.push_back(newline);
     return false;
 }
 
@@ -83,37 +134,6 @@ void Cache::fill_on_miss(uint32_t addr, Op op, uint32_t idx, uint32_t tag) {
     newline.tag   = tag;
 
     sets[idx].push_front(newline); // MRU for demand fills
-}
-
-bool Cache::writeback(uint32_t addr) {
-    // Upper level writes a full dirty block to us. No memory-read to install.
-    ++wr; // this is still a "write" to this level
-    uint32_t idx = idx_of(addr);
-    uint32_t tag = tag_of(addr);
-    Set& s = sets[idx];
-
-    auto it = find(s, tag);
-    if (it != s.end()) {
-        // Hit on writeback: mark dirty but don't bump MRU (not a CPU demand)
-        it->dirty = true;
-        return true;
-    }
-
-    // Miss on writeback: we install without reading memory (we got the data)
-    ++wmiss;
-
-    if (s.size() >= ways) {
-        evict_victim_and_propagate(idx);
-    }
-
-    Line newline;
-    newline.valid = true;
-    newline.dirty = true;  // obviously dirty (we're writing it back)
-    newline.tag   = tag;
-
-    // Writebacks are "cold" here -> insert at LRU (tail). This matches common refs.
-    s.push_back(newline);
-    return false;
 }
 
 void Cache::evict_victim_and_propagate(uint32_t idx) {
