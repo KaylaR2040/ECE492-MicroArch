@@ -21,17 +21,17 @@ bool parse_args(int argc, char* argv[], CacheParams& P, std::string& err) {
     // 1) BLOCKSIZE must be power-of-two
     if (!is_pow2(P.BLOCKSIZE)) { err = "BLOCKSIZE must be a power of two."; return false; }
 
-    // 2) L1: size must be multiple of (block * assoc); #sets is power-of-two
+    // 2) L1 geometry
     if (P.L1_ASSOC == 0) { err = "L1_ASSOC must be >= 1."; return false; }
     if (P.L1_SIZE == 0 || (P.L1_SIZE % (P.BLOCKSIZE * P.L1_ASSOC)) != 0) {
         err = "L1 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC."; return false;
     }
     {
-        uint32_t l1_sets = (P.L1_SIZE / P.BLOCKSIZE) / P.L1_ASSOC;
-        if (!is_pow2(l1_sets)) { err = "L1 number of sets must be a power of two."; return false; }
+        uint32_t sets = (P.L1_SIZE / P.BLOCKSIZE) / P.L1_ASSOC;
+        if (!is_pow2(sets)) { err = "L1 number of sets must be a power of two."; return false; }
     }
 
-    // 3) L2 (if present)
+    // 3) L2 geometry (if present)
     if (P.L2_SIZE == 0) {
         if (P.L2_ASSOC != 0) { err = "If L2_SIZE is 0, L2_ASSOC must be 0."; return false; }
     } else {
@@ -39,14 +39,14 @@ bool parse_args(int argc, char* argv[], CacheParams& P, std::string& err) {
         if ((P.L2_SIZE % (P.BLOCKSIZE * P.L2_ASSOC)) != 0) {
             err = "L2 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC."; return false;
         }
-        uint32_t l2_sets = (P.L2_SIZE / P.BLOCKSIZE) / P.L2_ASSOC;
-        if (!is_pow2(l2_sets)) { err = "L2 number of sets must be a power of two."; return false; }
+        uint32_t sets = (P.L2_SIZE / P.BLOCKSIZE) / P.L2_ASSOC;
+        if (!is_pow2(sets)) { err = "L2 number of sets must be a power of two."; return false; }
     }
     return true;
 }
 
 bool open_trace(const std::string& path, FILE*& fp) {
-    fp = std::fopen(path.c_str(), "r"); // read-only (Gradescope restriction)
+    fp = std::fopen(path.c_str(), "r");  // Gradescope is read-only
     return fp != nullptr;
 }
 
@@ -54,7 +54,7 @@ bool read_trace_line(FILE* fp, Op& op, uint32_t& addr) {
     char c; unsigned a;
     int n = std::fscanf(fp, " %c %x", &c, &a);
     if (n == 2) {
-        op = (c == 'r' || c == 'R') ? Op::Read : Op::Write;
+        op   = (c == 'r' || c == 'R') ? Op::Read : Op::Write;
         addr = static_cast<uint32_t>(a);
         return true;
     }
@@ -73,7 +73,6 @@ void print_config(const CacheParams& P) {
     std::cout << "trace_file: " << P.trace_file << "\n\n";
 }
 
-// L1 miss rate = overall (read+write) miss rate, per assignment
 static inline double l1_miss_rate(uint64_t r_miss, uint64_t w_miss,
                                   uint64_t r, uint64_t w) {
     const double denom = double(r + w);
@@ -81,17 +80,14 @@ static inline double l1_miss_rate(uint64_t r_miss, uint64_t w_miss,
     return double(r_miss + w_miss) / denom;
 }
 
-// L2 miss rate = demand *read* miss rate (no writes/prefetch in denom)
 static inline double l2_miss_rate(uint64_t rd_miss, uint64_t rd) {
     if (rd == 0) return 0.0;
     return double(rd_miss) / double(rd);
 }
 
 void print_results(const Cache& L1, const Cache* L2) {
-    // Print the exact labels/spacing the grader uses.
     std::cout << "===== Measurements =====\n";
-
-    // a–g: L1
+    // L1
     std::cout << "a. L1 reads:                   " << L1.reads()        << "\n";
     std::cout << "b. L1 read misses:             " << L1.read_misses()  << "\n";
     std::cout << "c. L1 writes:                  " << L1.writes()       << "\n";
@@ -103,7 +99,6 @@ void print_results(const Cache& L1, const Cache* L2) {
     std::cout << "g. L1 prefetches:              0\n";
 
     if (L2) {
-        // h–o: L2 demand/prefetch split (prefetch=0 for this project)
         std::cout << "h. L2 reads (demand):          " << L2->reads()        << "\n";
         std::cout << "i. L2 read misses (demand):    " << L2->read_misses()  << "\n";
         std::cout << "j. L2 reads (prefetch):        0\n";
@@ -117,7 +112,6 @@ void print_results(const Cache& L1, const Cache* L2) {
         std::cout << "p. L2 prefetches:              0\n";
         std::cout << "q. memory traffic:             " << (L2->memory_reads() + L2->memory_writes()) << "\n";
     } else {
-        // No L2 present
         std::cout << "h. L2 reads (demand):          0\n";
         std::cout << "i. L2 read misses (demand):    0\n";
         std::cout << "j. L2 reads (prefetch):        0\n";

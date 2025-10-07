@@ -1,3 +1,4 @@
+# build: creates 'sim' at repo root
 CXX := g++
 CXXFLAGS := -std=c++14 -O3 -Wall -Wextra -Wpedantic
 
@@ -12,9 +13,11 @@ sim: $(OBJ)
 src/%.o: src/%.cc src/%.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-src/main.o: src/main.cc src/sim.h src/cache.h src/utils.h
-src/cache.o: src/cache.cc src/cache.h src/sim.h
-src/utils.o: src/utils.cc src/utils.h src/sim.h src/cache.h
+# headers without .cc partners
+src/main.o: src/sim.h
+src/cache.o: src/sim.h
+src/utils.o: src/sim.h src/cache.h
 
 clean:
 	rm -f src/*.o sim
+.PHONY: all clean
