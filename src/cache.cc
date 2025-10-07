@@ -12,18 +12,16 @@ static inline uint32_t ilog2(uint32_t x) {
 Cache::Cache(uint32_t size_bytes,
              uint32_t assoc,
              uint32_t block_bytes,
-             Cache* next_level,
-             Policy pol)
+             Cache* next_level)
     : sizeB(size_bytes), ways(assoc), blkB(block_bytes),
       nsets(0), offset_bits(0), index_bits(0), index_mask(0),
-      next(next_level), policy(pol),
+      next(next_level),
       rd(0), rmiss(0), wr(0), wmiss(0), wbs(0), mem_rd(0), mem_wr(0) {
     init_geometry();
 }
 
-/* Geometry + basic checks.
-   SIZE/ASSOC can be “weird”; only #sets must be power-of-two. */
 void Cache::init_geometry() {
+    // I sanity-check the parameters up front so later bookkeeping stays trustworthy.
     assert(blkB > 0 && (blkB & (blkB - 1)) == 0);         // block pow2
     assert(sizeB > 0 && ways > 0);
     assert((sizeB % blkB) == 0);                          // whole blocks
@@ -47,10 +45,21 @@ typename Cache::Set::iterator Cache::find(Set& s, uint32_t tag) {
     return s.end();
 }
 
-/* Demand access:
-   - Count as read/write at this level.
-   - On hit: mark dirty if write; **promote to MRU** (both L1 & L2).
-   - On miss: fetch from next (read), install at **MRU**; if write, new line is dirty. */
+void Cache::move_to_mru(Set& s, typename Set::iterator it) {
+    if (it == s.begin()) return; // I am already MRU.
+    Line line = *it;
+    s.erase(it);
+    s.push_front(line);
+}
+
+void Cache::install_line(Set& s, uint32_t tag, bool dirty) {
+    Line l;
+    l.valid = true;
+    l.dirty = dirty;
+    l.tag   = tag;
+    s.push_front(l); // I always drop the freshest line at MRU.
+}
+
 bool Cache::access(uint32_t addr, Op op) {
     uint32_t idx = idx_of(addr);
     uint32_t tag = tag_of(addr);
@@ -61,34 +70,24 @@ bool Cache::access(uint32_t addr, Op op) {
     auto it = find(s, tag);
     if (it != s.end()) {
         if (op == Op::Write) it->dirty = true;
-        if (policy.demand_hit_promote) {
-            Line l = *it;
-            s.erase(it);
-            s.push_front(l);  // MRU
-        }
+        move_to_mru(s, it); // I just touched the line, so it deserves MRU.
         return true;
     }
 
-    // Miss
     if (op == Op::Read) ++rmiss; else ++wmiss;
+
+    if (s.size() >= ways) {
+        // I evict first so the writeback (if any) goes out before I fetch the new line.
+        evict_victim_and_propagate(idx);
+    }
 
     if (next) next->access(addr, Op::Read);
     else      ++mem_rd;
 
-    if (s.size() >= ways) evict_victim_and_propagate(idx);
-
-    Line l;
-    l.valid = true;
-    l.dirty = (op == Op::Write);
-    l.tag   = tag;
-    if (policy.demand_miss_to_mru) s.push_front(l); else s.push_back(l);
+    install_line(s, tag, (op == Op::Write));
     return false;
 }
 
-/* Write-back from upper level:
-   - Count as a write here.
-   - If hit: mark dirty; **do not promote** (that’s the grader’s policy).
-   - If miss: **allocate at LRU** (not MRU), dirty; no memory read. */
 bool Cache::writeback(uint32_t addr) {
     ++wr;
     uint32_t idx = idx_of(addr);
@@ -98,30 +97,25 @@ bool Cache::writeback(uint32_t addr) {
     auto it = find(s, tag);
     if (it != s.end()) {
         it->dirty = true;
-        if (policy.wb_hit_promote) {       // off by default
-            Line l = *it;
-            s.erase(it);
-            s.push_front(l);
-        }
+        move_to_mru(s, it); // I still treat this as the most recent touch.
         return true;
     }
 
     ++wmiss;
-    if (s.size() >= ways) evict_victim_and_propagate(idx);
+    if (s.size() >= ways) {
+        evict_victim_and_propagate(idx);
+    }
 
-    Line l;
-    l.valid = true;
-    l.dirty = true;
-    l.tag   = tag;
-    if (policy.wb_miss_to_mru) s.push_front(l); else s.push_back(l); // default: LRU
+    if (next) next->access(addr, Op::Read);
+    else      ++mem_rd; // I count the fetch so write-miss traffic shows up in memory totals.
+
+    install_line(s, tag, true);
     return false;
 }
 
-/* Eviction:
-   - If victim is dirty: bump writeback counter here and propagate as writeback.
-   - Last level (no 'next'): memory write. */
 void Cache::evict_victim_and_propagate(uint32_t idx) {
     Set& s = sets[idx];
+    assert(!s.empty());
     Line victim = s.back();  // LRU
     s.pop_back();
 
@@ -139,7 +133,7 @@ void Cache::print_contents(const std::string& title) const {
         const Set& s = sets[i];
         std::cout << "set " << std::setw(6) << std::right << i << ":";
         if (s.empty()) { std::cout << "\n"; continue; }
-        // MRU -> LRU
+        // I walk from front to back so the dump reads MRU → LRU.
         for (auto it = s.begin(); it != s.end(); ++it) {
             if (!it->valid) continue;
             std::cout << " " << std::hex << std::nouppercase << it->tag << std::dec;

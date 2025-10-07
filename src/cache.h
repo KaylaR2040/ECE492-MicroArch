@@ -9,33 +9,17 @@
 
 class Cache {
 public:
-    struct Policy {
-        // knobs for recency handling; see comments in cache.cc
-        bool demand_hit_promote;
-        bool demand_miss_to_mru;
-        bool wb_hit_promote;
-        bool wb_miss_to_mru;
-
-        Policy(bool dhp=true, bool dmtm=true, bool whp=false, bool wmtm=false)
-        : demand_hit_promote(dhp),
-          demand_miss_to_mru(dmtm),
-          wb_hit_promote(whp),
-          wb_miss_to_mru(wmtm) {}
-    };
-
     Cache(uint32_t size_bytes,
           uint32_t assoc,
           uint32_t block_bytes,
-          Cache* next_level = nullptr,
-          Policy pol = Policy());
+          Cache* next_level = nullptr);
 
-    void set_policy(const Policy& p) { policy = p; }
     void set_next(Cache* n) { next = n; }
 
-    // Demand access from upper level (WBWA + LRU). Returns hit?
+    // Demand access from the CPU or an upper cache (write-back, write-allocate).
     bool access(uint32_t addr, Op op);
 
-    // Dirty block from above (L1→L2, or L2→mem on last level)
+    // Dirty block delivered from above.
     bool writeback(uint32_t addr);
 
     void print_contents(const std::string& title) const;
@@ -55,13 +39,12 @@ private:
         bool dirty = false;
         uint32_t tag = 0;
     };
-    using Set = std::list<Line>;   // MRU at front, LRU at back
+    using Set = std::list<Line>;   // I keep MRU lines at the front, LRU lines at the back.
 
     // configuration / geometry
     uint32_t sizeB, ways, blkB;
     uint32_t nsets, offset_bits, index_bits, index_mask;
     Cache*   next;
-    Policy   policy;
 
     std::vector<Set> sets;
 
@@ -81,6 +64,8 @@ private:
     }
 
     typename Set::iterator find(Set& s, uint32_t tag);
+    void move_to_mru(Set& s, typename Set::iterator it);
+    void install_line(Set& s, uint32_t tag, bool dirty);
     void evict_victim_and_propagate(uint32_t idx);
 };
 
