@@ -1,0 +1,35 @@
+===== Simulator configuration =====
+BLOCKSIZE:  16
+L1_SIZE:    32
+L1_ASSOC:   2
+L2_SIZE:    128
+L2_ASSOC:   4
+PREF_N:     0
+PREF_M:     2
+trace_file: ../traces/gcc_trace.txt
+
+===== L1 contents =====
+set      0: 4003822 D 4000136  
+
+===== L2 contents =====
+set      0: 200009b   200009a   2000099   2000098  
+set      1: 200009a   2000099   2000098   2000097  
+
+===== Measurements =====
+a. L1 reads:                   63640
+b. L1 read misses:             38491
+c. L1 writes:                  36360
+d. L1 write misses:            18166
+e. L1 miss rate:               0.5666
+f. L1 writebacks:              20423
+g. L1 prefetches:              0
+h. L2 reads (demand):          56657
+i. L2 read misses (demand):    35007
+j. L2 reads (prefetch):        0
+k. L2 read misses (prefetch):  0
+l. L2 writes:                  20423
+m. L2 write misses:            2
+n. L2 miss rate:               0.6179
+o. L2 writebacks:              14851
+p. L2 prefetches:              0
+q. memory traffic:             49860

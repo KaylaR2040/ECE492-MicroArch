@@ -1,0 +1,112 @@
+===== Simulator configuration =====
+BLOCKSIZE:  32
+L1_SIZE:    2048
+L1_ASSOC:   4
+L2_SIZE:    16384
+L2_ASSOC:   8
+PREF_N:     0
+PREF_M:     0
+trace_file: /Users/kaylaradu/GitHubRepos/GitNCSU/ECE492-MicroArch/traces/gcc_trace.txt
+
+===== L1 contents =====
+set      0: 20028d D 20018a   20028e D 200198 D
+set      1: 2001c1 D 20028d D 200153 D 20013b  
+set      2: 200223 D 20028d D 200241   2001c1  
+set      3: 20018a   2001ac D 20028e D 20028d D
+set      4: 20018f D 2000f9   20017a D 20018a  
+set      5: 200009   20017a   2000fa   20018a  
+set      6: 200009   2000f9   20028d D 20018a  
+set      7: 200009   2001ac   2000fa   200149  
+set      8: 200009   3d819c D 20017b D 2000f9  
+set      9: 200009   2000fa   2000f9   2001b2 D
+set     10: 200009   200214   2000fa   20023f  
+set     11: 200009   2001ab   20013a   20023f  
+set     12: 20018f D 2001f2   2001aa   20018a D
+set     13: 20028d D 20018d D 20013a   20028c D
+set     14: 20013a   20018d D 20028d D 2001ad D
+set     15: 2001f8 D 20028c D 20013a   20018d D
+
+===== L2 contents =====
+set      0: 80066   8007d D 800a3 D 800ac D 800ab D 800a9 D 80063 D 800aa D
+set      1: 80066 D 8007e D 8006d D 800a3 D 800aa D 800a7 D 800a6 D 800ac D
+set      2: 80066 D 800a3 D 800aa D 800ac D 80063 D 800a8 D 800a7 D 800ab D
+set      3: 8006b   8006c D 800a3 D 800ac D 800ab D 800a6 D 800a9 D 8006f D
+set      4: 800a3 D 8006b D 8003e   800ac D 800ab D 800a6 D 800a9 D 800aa D
+set      5: 800a3 D 800ac D 800ab D 800aa D 800a9 D 800a8 D 800a7 D 800a6 D
+set      6: 8006b D 800a3 D 80079 D 8006f D 800ac D 800ab D 800aa D 800a9 D
+set      7: 8006b   800a3 D 800ac D 800ab D 800aa D 800a9 D 800a8 D 800a7 D
+set      8: 800a3 D 8007f D 800ac D f6067   800ab D 800aa D 800a9 D 800a8 D
+set      9: f6067 D 800a3 D 800ac D 800a8 D 800ab D 800aa D 800a9 D 800a7 D
+set     10: 80085 D 8007f D 800a3 D 800ac D 800a8 D 800ab D 8005f D 800aa D
+set     11: 80085 D 800a3 D f6067 D 800ac D 800a7 D 800ab D 800aa D 800a9 D
+set     12: 800a3 D 8007d D 800ac D 8003e   800a7 D 800ab D 800aa D 800a9 D
+set     13: 800a3   800ac D 800ab D 800aa D 800a9 D 800a8 D 800a7 D 800a6 D
+set     14: 800a3 D 8006a D 800ac D 80074 D 8007f D 800ab D 800aa D 800a9 D
+set     15: 8007e   800a3   800ac D 800ab D 8007f D 800aa D 800a9 D 800a8 D
+set     16: 80074 D 800a3   f6067 D 800ac D 800ab D 8007f D 800aa D 800a9 D
+set     17: 80070   80074 D 800a3   800ac D 800a9 D 800a8 D 800ab D 8007f D
+set     18: 80090   800a3 D 80052   80070 D 8007f D 800ac D 800a9 D 800a8 D
+set     19: 80070 D 800a3   8006f D 8007f D 800ac D 800a9 D 800ab D 800a7 D
+set     20: 8003e   800a3 D 80052   800ac D 8005a D 8006b D 800a9 D 800ab D
+set     21: 80002   800a3 D 8006b D 800ab D 80070 D 800aa D 800a9 D 800a8 D
+set     22: 80002   8003e   8006b D 800a3   800ab D 800a2 D 800aa D 800a9 D
+set     23: 80002   800a3 D 80052   800ab D 800a2 D 80060 D 8003e   800aa D
+set     24: 80002   8003e   800a3 D 80052   8005e D 800ab D 800a2 D 800aa D
+set     25: 80002   800a3 D 8003e   8007f D 800a6 D 8006d D 800a9 D 800a8 D
+set     26: 80002   800a3 D 800a9 D 800a8 D 800ab D 800a7 D 800a6 D 800a2 D
+set     27: 80002   800a3 D 80063 D 800ab D 800a2 D 8006d D 800aa D 800a9 D
+set     28: 800a3 D 80063 D 80062 D 8006b D 800ab D 8005e D 800a2 D 8006f  
+set     29: 800a3   80063   80074 D 8007d D 8006f D 800ab D 800a2 D 8006d D
+set     30: 800a3   80063   8006b D 8007f D 8007d D 80070   800ab D 800a2 D
+set     31: 800a3 D 80063   8006a D 80074 D 8006b D 800ab D 800a2 D 80086 D
+set     32: 80062   800a3   8005e D 800ab D 800a2 D 800aa D 800a9 D 800a8 D
+set     33: 800a3 D 800a8 D 800ab D 800a7 D 800a2 D 800a6 D 80067 D 800aa D
+set     34: 80062   800a3 D 800a8 D 800ab D 800a7 D 800a2 D 800a6 D 800aa D
+set     35: 800a3   80062   8005e D 800a8 D 800ab D 800a2 D 800aa D 800a9 D
+set     36: 800a3 D 80062   8005e D 800a8 D 800ab D 800a2 D 800aa D 80072 D
+set     37: 8005e   800a3 D 8003e   8006c D 80062   800ab D 800a2 D 800aa D
+set     38: 8006c D 80062   800ab D 800a2 D 80060 D 800aa D 8007f D 800a9 D
+set     39: 8003e   8006c D 8007d D 8005e   800ab D 800a2 D 80086 D 80060 D
+set     40: 8003e   8006c D 8006a   800ab D 800a2 D 800aa D 8007f D 800a9 D
+set     41: 8003e   8006c   8006a   800a6 D 800a9 D 800a8 D 800ab D 800a2 D
+set     42: 8006a   8003e   8006c D 8006b D 800a9 D 800a8 D 800ab D 800a2 D
+set     43: 8006a   8004e   800a9 D 800a8 D 800ab D 800a2 D 800aa D 800a7 D
+set     44: 8006a   80062   8007c D 8004e   800a9 D 800a8 D 800ab D 800a2 D
+set     45: 8004e   8006c D 8007f D 80088 D 800a2 D 800ab D 800aa D 800a9 D
+set     46: 8004e   8006c D 800a2 D 800ab D 800aa D 8006d D 800a9 D 800a8 D
+set     47: 8004e   80088 D 800a2 D 800ab D 800aa D 8006d D 800a9 D 800a8 D
+set     48: 8006a   80073   80088 D 800a2 D 800ab D 800aa D 8007c D 800a9 D
+set     49: 80054 D 8004e   8003e   800a2 D 800a8 D 800ab D 800a7 D 8006d D
+set     50: 80088   8004e   8007d D 800a2 D 800a8 D 800ab D 800a7 D 800a6 D
+set     51: 800a2 D 800ab D 800aa D 800a5 D 800a9 D 8007c D 800a8 D 800a7 D
+set     52: 8008f   8007c D 800a9 D 800a2 D 800ab D 800aa D 800a5 D 80063  
+set     53: 8008f   80063 D 800a2 D 800ab D 800aa D 800a9 D 800a8 D 800a7 D
+set     54: 8008f   80088 D 800a2 D 800ab D 8007f D 80073 D 800aa D 80086 D
+set     55: 8008f   8006e D 8005e D 8006b D 800a2 D 800ab D 800aa D 800a9 D
+set     56: 8005e D 8008f   8007d D 8006e D 800a2 D 800ab D 800aa D 80067 D
+set     57: 8008f   8005e D 800a6 D 800a2 D 800a9 D 800a8 D 800ab D 800a7 D
+set     58: 8008f   8006a D 80063 D 800a2 D 8003d   800a9 D 800a8 D 800ab D
+set     59: 8006a D 8008f   800a2 D 800ab D 80039   800aa D 800a5 D 800a9 D
+set     60: 80063   8008f   8006a   8006b D 800a2 D 800ab D 80039   800aa D
+set     61: 8006c D 8006a D 8006b D 800a2 D 800ab D 80039   800aa D 8003d  
+set     62: 80069 D 800a2 D 8006c D 800ab D 80039   8003d   800aa D 800a9 D
+set     63: 80065 D 80069 D 800a2 D 800ab D 80039   800aa D 80062 D 800a9 D
+
+===== Measurements =====
+a. L1 reads:                   63640
+b. L1 read misses:             5170
+c. L1 writes:                  36360
+d. L1 write misses:            4452
+e. L1 miss rate:               0.0962
+f. L1 writebacks:              4942
+g. L1 prefetches:              0
+h. L2 reads (demand):          9622
+i. L2 read misses (demand):    2770
+j. L2 reads (prefetch):        0
+k. L2 read misses (prefetch):  0
+l. L2 writes:                  4942
+m. L2 write misses:            3
+n. L2 miss rate:               0.2879
+o. L2 writebacks:              1767
+p. L2 prefetches:              0
+q. memory traffic:             4540

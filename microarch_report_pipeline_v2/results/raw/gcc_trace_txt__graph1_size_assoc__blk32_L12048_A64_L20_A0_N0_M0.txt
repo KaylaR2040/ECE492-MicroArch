@@ -1,0 +1,31 @@
+===== Simulator configuration =====
+BLOCKSIZE:  32
+L1_SIZE:    2048
+L1_ASSOC:   64
+L2_SIZE:    0
+L2_ASSOC:   0
+PREF_N:     0
+PREF_M:     0
+trace_file: /Users/kaylaradu/GitHubRepos/GitNCSU/ECE492-MicroArch/traces/gcc_trace.txt
+
+===== L1 contents =====
+set      0: 2001c11 D 200009b   200009a   2000099   2000098   2000097   2000096   2000095   20028d0 D 2002232 D 20028d2 D 2001f8f D 2002412   200214a   20017a5   20018f4 D 20018a3   2001c12 D 2001ac7   3d819c8 D 20028d1 D 2001531 D 20018a0   20018a2   2000fa5   2000f94   20017a4 D 20028cf D 20018fc D 20018a4   2000fa7   2000f96   2001abb   20017b8 D 20013b1   20013ae   20028e4 D 20018a5   20028e5 D 2000fa9   2000f98   2001f2c   2001aac   2001ac3 D 20018ac D 20013af   20013ac   2000fa8   20028d5 D 20028d6 D 2001497   2000fb1   2001492   20028d7 D 20028e3 D 2001abc   20028d3 D 20028d4 D 2001982 D 2000faa   20023fc   20013ab   20018a6   2000f99  
+
+===== Measurements =====
+a. L1 reads:                   63640
+b. L1 read misses:             4585
+c. L1 writes:                  36360
+d. L1 write misses:            4275
+e. L1 miss rate:               0.0886
+f. L1 writebacks:              4693
+g. L1 prefetches:              0
+h. L2 reads (demand):          0
+i. L2 read misses (demand):    0
+j. L2 reads (prefetch):        0
+k. L2 read misses (prefetch):  0
+l. L2 writes:                  0
+m. L2 write misses:            0
+n. L2 miss rate:               0.0000
+o. L2 writebacks:              0
+p. L2 prefetches:              0
+q. memory traffic:             13553

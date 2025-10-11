@@ -1,0 +1,2096 @@
+===== Simulator configuration =====
+BLOCKSIZE:  64
+L1_SIZE:    4096
+L1_ASSOC:   4
+L2_SIZE:    262144
+L2_ASSOC:   2
+PREF_N:     0
+PREF_M:     0
+trace_file: ../traces/gcc_trace.txt
+
+===== L1 contents =====
+set      0: 1000c5   100147 D 1000cc D 1000bd D
+set      1: 1000c5   1000d6 D 100147 D 1000cc D
+set      2: 1000bd D 10007d   1000c5   100147 D
+set      3: 1000d6 D 10007d   1000c5   1000d9 D
+set      4: 1ec0ce D 10007d   1000d9 D 1000d5  
+set      5: 10010a D 10007d   10009d   1000d5  
+set      6: 1000f9   1000d5   1000c5 D 10009d  
+set      7: 1000fc D 100146 D 10009d   100111 D
+set      8: 1000e0 D 100146 D 1000a9 D 10009d  
+set      9: 100111 D 100146 D 100120   1000e0 D
+set     10: 100004   1000c7 D 10007c   100146 D
+set     11: 100004   10007c   100146 D 1000a4  
+set     12: 100004   1000bd D 10007c   1000a4  
+set     13: 100004   1000d5 D 10011f   100146 D
+set     14: 1000c7 D 1000d5   10011f   100146 D
+set     15: 1000c6 D 100146 D 1000cb D 1000d6 D
+
+===== L2 contents =====
+set      0:
+set      1:
+set      2:
+set      3:
+set      4:
+set      5:
+set      6:
+set      7:
+set      8:
+set      9:
+set     10:
+set     11:
+set     12:
+set     13:
+set     14:
+set     15:
+set     16:
+set     17:
+set     18:
+set     19:
+set     20:
+set     21:
+set     22:
+set     23:
+set     24:
+set     25:
+set     26:
+set     27:
+set     28:
+set     29:
+set     30:
+set     31:
+set     32:
+set     33:
+set     34:
+set     35:
+set     36:
+set     37:
+set     38:
+set     39:
+set     40:
+set     41:
+set     42:
+set     43:
+set     44:
+set     45:
+set     46:
+set     47:
+set     48:
+set     49:
+set     50:
+set     51:
+set     52:
+set     53:
+set     54:
+set     55:
+set     56:
+set     57:
+set     58:
+set     59:
+set     60:
+set     61:
+set     62:
+set     63:
+set     64:
+set     65:
+set     66:
+set     67:
+set     68:
+set     69:
+set     70:
+set     71:
+set     72:
+set     73:
+set     74: 2000  
+set     75: 2000  
+set     76: 2000  
+set     77: 2000  
+set     78:
+set     79:
+set     80:
+set     81:
+set     82:
+set     83:
+set     84:
+set     85:
+set     86: 2000  
+set     87:
+set     88:
+set     89:
+set     90:
+set     91:
+set     92:
+set     93:
+set     94:
+set     95:
+set     96:
+set     97:
+set     98:
+set     99:
+set    100:
+set    101:
+set    102:
+set    103:
+set    104:
+set    105:
+set    106:
+set    107: 2001 D
+set    108:
+set    109:
+set    110: 2001  
+set    111: 2001  
+set    112: 2001  
+set    113:
+set    114:
+set    115:
+set    116:
+set    117: 2001  
+set    118:
+set    119:
+set    120:
+set    121:
+set    122:
+set    123:
+set    124:
+set    125:
+set    126: 2000  
+set    127:
+set    128:
+set    129:
+set    130:
+set    131: 2000  
+set    132: 2000  
+set    133: 2000  
+set    134:
+set    135:
+set    136:
+set    137:
+set    138:
+set    139:
+set    140:
+set    141:
+set    142: 2000 D
+set    143:
+set    144:
+set    145: 2000  
+set    146: 2000  
+set    147:
+set    148:
+set    149:
+set    150:
+set    151: 2000  
+set    152: 2000  
+set    153: 2002  
+set    154: 2002 D
+set    155: 2000  
+set    156:
+set    157:
+set    158:
+set    159: 2000  
+set    160:
+set    161: 2000  
+set    162: 2002  
+set    163:
+set    164:
+set    165: 2002  
+set    166: 2002 D 2000  
+set    167: 2002 D
+set    168: 2002 D
+set    169: 2002 D
+set    170: 2002 D
+set    171: 2002 D
+set    172: 2002 D
+set    173: 2002 D
+set    174: 2002 D
+set    175: 2002 D
+set    176: 2002 D
+set    177: 2002 D
+set    178: 2002 D 2001 D
+set    179: 2002 D 2001 D
+set    180: 2002 D
+set    181: 2002 D
+set    182: 2002 D
+set    183: 2002 D 2001 D
+set    184: 2002 D
+set    185: 2002 D 2001 D
+set    186: 2002 D 2001 D
+set    187: 2002 D
+set    188: 2002 D
+set    189: 2002 D
+set    190: 2002 D
+set    191: 2002 D
+set    192: 2002 D
+set    193: 2002 D
+set    194: 2002 D
+set    195: 2002 D
+set    196: 2002 D
+set    197: 2002 D
+set    198: 2002 D
+set    199: 2002 D
+set    200: 2002 D
+set    201: 2002 D
+set    202: 2002 D
+set    203: 2002 D
+set    204: 2002 D
+set    205: 2002 D
+set    206: 2002 D
+set    207: 2002 D 2000  
+set    208: 2002 D 2000  
+set    209: 2002 D
+set    210: 2002 D
+set    211: 2002 D
+set    212: 2002 D
+set    213: 2002 D
+set    214: 2002 D
+set    215: 2002 D
+set    216: 2002 D
+set    217: 2002 D
+set    218: 2002 D
+set    219: 2002 D
+set    220: 2002 D
+set    221: 2002 D 2001 D
+set    222: 2002 D 2001 D
+set    223: 2002 D
+set    224: 2002 D
+set    225: 2002 D
+set    226: 2002 D 2001 D
+set    227: 2002 D 2000  
+set    228: 2002 D 2000  
+set    229: 2002 D 2001 D
+set    230: 2002 D
+set    231: 2002 D
+set    232: 2002 D
+set    233: 2002 D 2001 D
+set    234: 2002 D
+set    235: 2002 D 2001 D
+set    236: 2002 D 2001 D
+set    237: 2002 D 2001 D
+set    238: 2002 D
+set    239: 2002 D
+set    240: 2002 D
+set    241: 2002 D
+set    242: 2002 D 2001  
+set    243: 2002 D
+set    244: 2002 D
+set    245: 2002 D
+set    246: 2002 D
+set    247: 2002 D
+set    248: 2002 D
+set    249: 2002 D
+set    250: 2002 D
+set    251: 2002 D
+set    252: 2002 D
+set    253: 2002 D
+set    254: 2002 D
+set    255: 2002 D
+set    256: 2002 D
+set    257: 2002 D
+set    258: 2002 D
+set    259: 2002 D 1c  
+set    260: 2002 D 1c  
+set    261: 2002 D
+set    262: 2002 D
+set    263: 2002 D
+set    264: 2002 D
+set    265: 2002 D
+set    266: 2002 D
+set    267: 2002 D
+set    268: 2002 D
+set    269: 2002 D
+set    270: 2002 D
+set    271: 2002 D
+set    272: 2002 D
+set    273: 2002 D
+set    274: 2002 D
+set    275: 2002 D
+set    276: 2002 D
+set    277: 2002 D
+set    278: 2002 D
+set    279: 2002  
+set    280: 2002 D
+set    281: 2002  
+set    282:
+set    283: 2002 D
+set    284:
+set    285:
+set    286:
+set    287:
+set    288:
+set    289:
+set    290:
+set    291:
+set    292:
+set    293:
+set    294:
+set    295:
+set    296:
+set    297:
+set    298:
+set    299:
+set    300:
+set    301:
+set    302:
+set    303:
+set    304:
+set    305:
+set    306:
+set    307:
+set    308:
+set    309:
+set    310:
+set    311:
+set    312: 2000  
+set    313: 2000  
+set    314: 2000  
+set    315: 2000  
+set    316: 2000  
+set    317: 2000  
+set    318: 2000  
+set    319: 2000  
+set    320: 2000  
+set    321: 2000  
+set    322: 2000  
+set    323: 2000  
+set    324:
+set    325:
+set    326:
+set    327:
+set    328:
+set    329:
+set    330:
+set    331:
+set    332:
+set    333:
+set    334:
+set    335:
+set    336:
+set    337:
+set    338:
+set    339:
+set    340:
+set    341:
+set    342:
+set    343:
+set    344:
+set    345:
+set    346:
+set    347:
+set    348:
+set    349:
+set    350:
+set    351:
+set    352:
+set    353:
+set    354:
+set    355:
+set    356:
+set    357:
+set    358:
+set    359:
+set    360:
+set    361:
+set    362:
+set    363:
+set    364:
+set    365:
+set    366:
+set    367:
+set    368:
+set    369:
+set    370:
+set    371:
+set    372:
+set    373:
+set    374:
+set    375:
+set    376:
+set    377:
+set    378:
+set    379:
+set    380:
+set    381:
+set    382:
+set    383:
+set    384:
+set    385:
+set    386:
+set    387:
+set    388:
+set    389:
+set    390:
+set    391:
+set    392:
+set    393:
+set    394:
+set    395:
+set    396:
+set    397:
+set    398:
+set    399:
+set    400:
+set    401:
+set    402:
+set    403:
+set    404:
+set    405:
+set    406:
+set    407:
+set    408:
+set    409:
+set    410:
+set    411: 2002 D
+set    412: 2002 D
+set    413:
+set    414:
+set    415:
+set    416:
+set    417:
+set    418:
+set    419:
+set    420:
+set    421:
+set    422:
+set    423:
+set    424:
+set    425:
+set    426:
+set    427:
+set    428:
+set    429:
+set    430:
+set    431:
+set    432:
+set    433:
+set    434:
+set    435:
+set    436:
+set    437:
+set    438:
+set    439:
+set    440:
+set    441:
+set    442:
+set    443:
+set    444:
+set    445:
+set    446:
+set    447:
+set    448:
+set    449:
+set    450:
+set    451:
+set    452:
+set    453:
+set    454:
+set    455:
+set    456:
+set    457:
+set    458:
+set    459:
+set    460:
+set    461:
+set    462:
+set    463:
+set    464:
+set    465:
+set    466:
+set    467:
+set    468:
+set    469: 2001  
+set    470: 2001  
+set    471: 2001  
+set    472: 2001  
+set    473: 2001  
+set    474:
+set    475:
+set    476: 2002  
+set    477: 2002 D
+set    478:
+set    479:
+set    480:
+set    481:
+set    482:
+set    483:
+set    484:
+set    485:
+set    486: 2002  
+set    487:
+set    488:
+set    489:
+set    490:
+set    491:
+set    492:
+set    493:
+set    494:
+set    495:
+set    496:
+set    497:
+set    498:
+set    499:
+set    500:
+set    501:
+set    502:
+set    503:
+set    504:
+set    505:
+set    506: 2002  
+set    507: 2002  
+set    508: 2002  
+set    509: 2002  
+set    510: 2002  
+set    511:
+set    512:
+set    513:
+set    514:
+set    515:
+set    516:
+set    517:
+set    518:
+set    519:
+set    520:
+set    521: 2002  
+set    522: 2002  
+set    523: 2002 D
+set    524: 2002  
+set    525: 2002  
+set    526: 2002  
+set    527: 2002 D
+set    528: 2002  
+set    529: 2002  
+set    530: 2002  
+set    531:
+set    532:
+set    533:
+set    534:
+set    535:
+set    536:
+set    537:
+set    538:
+set    539:
+set    540:
+set    541:
+set    542:
+set    543:
+set    544:
+set    545:
+set    546:
+set    547:
+set    548:
+set    549:
+set    550:
+set    551:
+set    552:
+set    553:
+set    554:
+set    555:
+set    556:
+set    557:
+set    558:
+set    559:
+set    560:
+set    561:
+set    562:
+set    563:
+set    564:
+set    565:
+set    566:
+set    567:
+set    568:
+set    569:
+set    570:
+set    571:
+set    572:
+set    573:
+set    574:
+set    575:
+set    576:
+set    577:
+set    578:
+set    579:
+set    580:
+set    581:
+set    582:
+set    583:
+set    584:
+set    585: 2001  
+set    586: 2001  
+set    587: 2001  
+set    588: 2001  
+set    589:
+set    590:
+set    591:
+set    592:
+set    593:
+set    594:
+set    595:
+set    596:
+set    597:
+set    598:
+set    599:
+set    600:
+set    601:
+set    602:
+set    603:
+set    604:
+set    605:
+set    606:
+set    607:
+set    608:
+set    609:
+set    610:
+set    611:
+set    612:
+set    613:
+set    614:
+set    615:
+set    616:
+set    617:
+set    618:
+set    619:
+set    620:
+set    621:
+set    622:
+set    623:
+set    624:
+set    625:
+set    626:
+set    627:
+set    628:
+set    629:
+set    630:
+set    631:
+set    632:
+set    633:
+set    634:
+set    635:
+set    636:
+set    637:
+set    638:
+set    639:
+set    640:
+set    641:
+set    642:
+set    643:
+set    644:
+set    645:
+set    646:
+set    647:
+set    648:
+set    649:
+set    650:
+set    651:
+set    652:
+set    653:
+set    654:
+set    655:
+set    656:
+set    657:
+set    658:
+set    659:
+set    660:
+set    661:
+set    662: 2001 D
+set    663:
+set    664: 2001 D
+set    665:
+set    666:
+set    667:
+set    668:
+set    669:
+set    670: 2001 D
+set    671: 2001  
+set    672: 2001 D
+set    673:
+set    674:
+set    675:
+set    676:
+set    677:
+set    678:
+set    679:
+set    680:
+set    681:
+set    682:
+set    683:
+set    684:
+set    685:
+set    686:
+set    687:
+set    688:
+set    689:
+set    690:
+set    691:
+set    692:
+set    693:
+set    694:
+set    695:
+set    696:
+set    697:
+set    698:
+set    699:
+set    700:
+set    701:
+set    702:
+set    703:
+set    704:
+set    705:
+set    706:
+set    707:
+set    708:
+set    709:
+set    710:
+set    711:
+set    712:
+set    713:
+set    714:
+set    715:
+set    716:
+set    717:
+set    718:
+set    719:
+set    720:
+set    721:
+set    722:
+set    723:
+set    724:
+set    725:
+set    726:
+set    727:
+set    728:
+set    729:
+set    730:
+set    731:
+set    732:
+set    733:
+set    734:
+set    735:
+set    736:
+set    737:
+set    738:
+set    739:
+set    740:
+set    741:
+set    742:
+set    743:
+set    744:
+set    745:
+set    746:
+set    747:
+set    748:
+set    749:
+set    750:
+set    751:
+set    752:
+set    753:
+set    754:
+set    755:
+set    756:
+set    757:
+set    758:
+set    759:
+set    760:
+set    761:
+set    762:
+set    763:
+set    764:
+set    765:
+set    766:
+set    767:
+set    768:
+set    769:
+set    770:
+set    771:
+set    772:
+set    773:
+set    774:
+set    775:
+set    776:
+set    777:
+set    778:
+set    779:
+set    780:
+set    781: 210a D
+set    782:
+set    783:
+set    784:
+set    785:
+set    786: 210a D
+set    787:
+set    788:
+set    789: 210a  
+set    790: 210a D
+set    791:
+set    792:
+set    793:
+set    794: 2002   210a D
+set    795: 2002  
+set    796: 2002  
+set    797:
+set    798: 210a D
+set    799:
+set    800: 2002   210a  
+set    801: 210a D
+set    802: 2002   210a D
+set    803: 2002  
+set    804: 210a  
+set    805: 210a  
+set    806: 210a  
+set    807: 210a  
+set    808:
+set    809:
+set    810:
+set    811:
+set    812:
+set    813:
+set    814:
+set    815:
+set    816:
+set    817:
+set    818:
+set    819: 211d  
+set    820: 2002 D 211d  
+set    821: 2002 D 211d  
+set    822: 2002   211d D
+set    823: 2002   211d D
+set    824: 2002   211d  
+set    825: 2002   211d  
+set    826: 211d  
+set    827: 211d D
+set    828: 211d  
+set    829: 2002  
+set    830:
+set    831:
+set    832:
+set    833:
+set    834:
+set    835:
+set    836:
+set    837:
+set    838:
+set    839: 2002  
+set    840:
+set    841:
+set    842: 2001 D 2002 D
+set    843: 2002   2001 D
+set    844: 2002  
+set    845: 2002  
+set    846:
+set    847:
+set    848:
+set    849:
+set    850:
+set    851:
+set    852:
+set    853:
+set    854:
+set    855:
+set    856:
+set    857:
+set    858:
+set    859:
+set    860:
+set    861:
+set    862:
+set    863:
+set    864:
+set    865:
+set    866:
+set    867:
+set    868:
+set    869:
+set    870:
+set    871:
+set    872:
+set    873:
+set    874:
+set    875: 211d  
+set    876:
+set    877:
+set    878:
+set    879:
+set    880:
+set    881:
+set    882:
+set    883:
+set    884:
+set    885: 2002  
+set    886:
+set    887:
+set    888: 2002  
+set    889:
+set    890: 2002  
+set    891: 2002  
+set    892:
+set    893:
+set    894: 2002 D
+set    895: 2002  
+set    896: 2002 D
+set    897: 211d  
+set    898: 2002 D
+set    899: 2002 D
+set    900: 2002 D
+set    901: 2002 D
+set    902: 2002 D
+set    903: 2002 D
+set    904: 2002 D
+set    905: 2002 D
+set    906: 2002 D
+set    907: 2002 D
+set    908: 2002 D
+set    909: 2002 D
+set    910: 2002 D
+set    911: 2002 D
+set    912: 2002 D 211d D
+set    913: 2002 D 211d  
+set    914: 2002 D 211d  
+set    915: 2002 D
+set    916: 2002 D
+set    917: 2002 D
+set    918: 2002 D
+set    919: 2002 D
+set    920: 2002 D
+set    921: 2002 D
+set    922: 2002 D
+set    923: 2002 D
+set    924: 2002 D
+set    925: 2002 D
+set    926: 2002 D
+set    927: 2002 D
+set    928: 2002 D
+set    929: 2002 D
+set    930: 2002 D
+set    931: 2002 D
+set    932: 2002 D
+set    933: 2002 D
+set    934: 2002 D
+set    935: 2002 D
+set    936: 2002 D
+set    937: 2002 D
+set    938: 2002 D
+set    939: 2002 D
+set    940: 2002 D
+set    941: 2002 D 211d  
+set    942: 2002 D 211d D
+set    943: 2002 D 211d  
+set    944: 2002 D 211d D
+set    945: 2002 D 211d D
+set    946: 2002 D 211d  
+set    947: 2002 D
+set    948: 2002 D
+set    949: 2002 D
+set    950: 2002 D
+set    951: 2002 D
+set    952: 2002 D
+set    953: 2002 D
+set    954: 2002 D
+set    955: 2002 D
+set    956: 2002 D
+set    957: 2002 D
+set    958: 2002 D
+set    959: 2002 D
+set    960: 2002 D
+set    961: 2002 D
+set    962: 2002 D
+set    963: 2002 D
+set    964: 2002 D
+set    965: 2002 D
+set    966: 2002 D
+set    967: 2002 D
+set    968: 2002 D
+set    969: 2002 D 211d  
+set    970: 2002 D 211d  
+set    971: 2002 D 211d  
+set    972: 2001 D 2002 D
+set    973: 2002 D
+set    974: 2001 D 2002 D
+set    975: 2002 D
+set    976: 2001   2002 D
+set    977: 2001 D 2002 D
+set    978: 2001 D 2002 D
+set    979: 2001 D 2002 D
+set    980: 2002 D
+set    981: 2002 D
+set    982: 2002 D
+set    983: 2002 D 2001  
+set    984: 2002 D
+set    985: 2002 D
+set    986: 2002 D
+set    987: 2001 D 2002 D
+set    988: 2001 D 2002 D
+set    989: 2001 D 2002 D
+set    990: 2001 D 2002 D
+set    991: 2001 D 2002 D
+set    992: 2001 D 2002 D
+set    993: 2001 D 2002 D
+set    994: 2001 D 2002 D
+set    995: 2001 D 2002 D
+set    996: 2001 D 2002 D
+set    997: 2001 D 2002 D
+set    998: 2001 D 2002 D
+set    999: 2001 D 2002 D
+set   1000: 2001 D 2002 D
+set   1001: 2001 D 2002 D
+set   1002: 2001 D 2002 D
+set   1003: 2001 D 2002 D
+set   1004: 2001 D 2002 D
+set   1005: 2001 D 2002 D
+set   1006: 2001 D 2002 D
+set   1007: 2001 D 2002 D
+set   1008: 2001 D 2002 D
+set   1009: 2001 D 2002 D
+set   1010: 2001 D 2002 D
+set   1011: 2001 D 2002 D
+set   1012: 2001 D 2002 D
+set   1013: 2001 D 2002 D
+set   1014: 2001 D 2002 D
+set   1015: 2001 D 2002 D
+set   1016: 2001 D 2002 D
+set   1017: 2001 D 2002 D
+set   1018: 2001 D 2002 D
+set   1019: 2001 D 2002 D
+set   1020: 2001 D 2002 D
+set   1021: 2001 D 2002 D
+set   1022: 2001 D 2002 D
+set   1023: 2001 D 2002 D
+set   1024: 2001 D 2002 D
+set   1025: 2001 D 2002 D
+set   1026: 2001 D 2002 D
+set   1027: 2001 D 2002 D
+set   1028: 2001 D 2002 D
+set   1029: 2001 D 2002 D
+set   1030: 2001 D 2002 D
+set   1031: 2001 D 2002 D
+set   1032: 2001 D 2002 D
+set   1033: 2001 D 2002 D
+set   1034: 2001 D 2002 D
+set   1035: 2001 D 2002 D
+set   1036: 2001 D 2002 D
+set   1037: 2001 D 2002 D
+set   1038: 2001 D 2002 D
+set   1039: 2001 D 2002 D
+set   1040: 2001 D 2002 D
+set   1041: 2001 D 2002 D
+set   1042: 2001 D 2002 D
+set   1043: 2001 D 2002 D
+set   1044: 2001 D 2002 D
+set   1045: 2001 D 2002 D
+set   1046: 2001 D 2002 D
+set   1047: 2001 D 2002 D
+set   1048: 2001 D 2002 D
+set   1049: 2001 D 2002 D
+set   1050: 2001 D 2002 D
+set   1051: 2001 D 2002 D
+set   1052: 2001 D 2002 D
+set   1053: 2001 D 2002 D
+set   1054: 2001 D 2002 D
+set   1055: 2001 D 2002 D
+set   1056: 2001 D 2002 D
+set   1057: 2001 D 2002 D
+set   1058: 2001 D 2002 D
+set   1059: 2001 D 2002 D
+set   1060: 2001 D 2002 D
+set   1061: 2001 D 2002 D
+set   1062: 2001 D 2002 D
+set   1063: 2001 D 2002 D
+set   1064: 2001 D 2002 D
+set   1065: 2001 D 2002 D
+set   1066: 2001 D 2002 D
+set   1067: 2001 D 2002 D
+set   1068: 2001 D 2002 D
+set   1069: 2001 D 2002 D
+set   1070: 2001 D 2002 D
+set   1071: 2001 D 2002 D
+set   1072: 2001 D 2002 D
+set   1073: 2001 D 2002 D
+set   1074: 2001 D 2002 D
+set   1075: 2001 D 2002 D
+set   1076: 2001 D 2002 D
+set   1077: 2001 D 2002 D
+set   1078: 2001 D 2002 D
+set   1079: 2001 D 2002 D
+set   1080: 2001 D 2002 D
+set   1081: 2001 D 2002 D
+set   1082: 2001 D 2002 D
+set   1083: 2001 D 2002 D
+set   1084: 2001 D 2002 D
+set   1085: 2001 D 2002 D
+set   1086: 2001 D 2002 D
+set   1087: 2001 D 2002 D
+set   1088: 2001 D 2002 D
+set   1089: 2001 D 2002 D
+set   1090: 2001 D 2002 D
+set   1091: 2001 D 2002 D
+set   1092: 2001 D 2002 D
+set   1093: 2001 D 2002 D
+set   1094: 2001 D 2002 D
+set   1095: 2001 D 2002 D
+set   1096: 2001 D 2002 D
+set   1097: 2001 D 2002 D
+set   1098: 2001 D 2002 D
+set   1099: 2002 D 2001 D
+set   1100: 2002 D 2001 D
+set   1101: 2002 D 2001 D
+set   1102: 2001 D 2002 D
+set   1103: 2002 D
+set   1104: 2001   2002 D
+set   1105: 2001   2002 D
+set   1106: 2002 D 2001  
+set   1107: 2001   2002 D
+set   1108: 2002 D
+set   1109: 2002 D
+set   1110: 2001   2002 D
+set   1111: 2002 D
+set   1112: 2002 D
+set   1113: 2002 D
+set   1114: 2002 D 2001 D
+set   1115: 2002 D 2001 D
+set   1116: 2002 D 2001 D
+set   1117: 2002 D 2001 D
+set   1118: 2002 D 2001 D
+set   1119: 2002 D 2001 D
+set   1120: 2002 D 2001 D
+set   1121: 2002 D 2001 D
+set   1122: 2002 D
+set   1123: 2002 D
+set   1124: 2002 D
+set   1125: 2002 D
+set   1126: 2002 D
+set   1127: 2002  
+set   1128: 2002  
+set   1129: 2002  
+set   1130: 2002  
+set   1131: 2002  
+set   1132: 2002 D
+set   1133: 2001 D 2002  
+set   1134: 2001 D 2002  
+set   1135: 2002   2001  
+set   1136: 2002  
+set   1137: 2002  
+set   1138: 2002  
+set   1139:
+set   1140: 2002 D
+set   1141: 2002 D
+set   1142: 2002 D
+set   1143: 2002 D 211a  
+set   1144: 2002 D 211a  
+set   1145: 211a  
+set   1146: 2001 D
+set   1147:
+set   1148:
+set   1149: 2001 D
+set   1150: 2001 D
+set   1151: 2001 D
+set   1152:
+set   1153:
+set   1154:
+set   1155: 2001 D
+set   1156:
+set   1157: 2001 D
+set   1158:
+set   1159:
+set   1160:
+set   1161: 2001 D
+set   1162: 2001 D
+set   1163:
+set   1164: 2001 D
+set   1165: 2001 D
+set   1166: 2001 D
+set   1167:
+set   1168: 2001 D
+set   1169: 2001 D
+set   1170: 2001 D
+set   1171: 2001 D
+set   1172: 2001 D
+set   1173:
+set   1174:
+set   1175:
+set   1176: 2001 D
+set   1177: 2001  
+set   1178: 2001 D
+set   1179:
+set   1180: 2001 D
+set   1181:
+set   1182: 2001 D
+set   1183:
+set   1184:
+set   1185:
+set   1186:
+set   1187:
+set   1188:
+set   1189: 2001 D
+set   1190: 2001 D
+set   1191: 2001 D
+set   1192:
+set   1193: 2001 D
+set   1194:
+set   1195:
+set   1196: 2001 D
+set   1197: 2001 D
+set   1198:
+set   1199: 211a  
+set   1200:
+set   1201: 2001 D
+set   1202: 2001 D
+set   1203:
+set   1204: 2001 D
+set   1205:
+set   1206: 2001 D
+set   1207: 2001 D
+set   1208: 2002 D 2001 D
+set   1209: 2002 D 2001 D
+set   1210: 2002 D 2001 D
+set   1211: 2002 D
+set   1212: 2002 D 2001 D
+set   1213: 2002 D
+set   1214: 2002 D
+set   1215: 2001   2002 D
+set   1216: 2001   2002 D
+set   1217: 2001   2002 D
+set   1218: 2002 D
+set   1219: 2002 D
+set   1220: 2002 D
+set   1221: 2002 D 2001 D
+set   1222: 2002 D 2001 D
+set   1223: 2002 D 2001 D
+set   1224: 2002 D 2001 D
+set   1225: 2002 D 2001 D
+set   1226: 2002 D 2001 D
+set   1227: 2002 D 2001 D
+set   1228: 2002 D 2001 D
+set   1229: 2002 D 2001 D
+set   1230: 2002 D 2001 D
+set   1231: 2002 D 2001 D
+set   1232: 2002 D 2001 D
+set   1233: 2002 D 2001 D
+set   1234: 2002 D 2001 D
+set   1235: 2002 D 2001 D
+set   1236: 2002 D 2001 D
+set   1237: 2002 D 2001 D
+set   1238: 2002 D 2001 D
+set   1239: 2002 D 2001 D
+set   1240: 2002 D 2001 D
+set   1241: 2002 D 2001 D
+set   1242: 2002 D 2001 D
+set   1243: 2002 D 2001 D
+set   1244: 2002 D 2001 D
+set   1245: 2002 D 2001 D
+set   1246: 2002 D 2001 D
+set   1247: 2002 D 2001 D
+set   1248: 2002 D 2001 D
+set   1249: 2002 D 2001 D
+set   1250: 2002 D 2001 D
+set   1251: 2002 D 2001 D
+set   1252: 3d81   2002 D
+set   1253: 3d81 D 2002 D
+set   1254: 2002 D 2001 D
+set   1255: 2002 D 2001 D
+set   1256: 3d81 D 2002 D
+set   1257: 2002 D 2001 D
+set   1258: 2002 D 2001 D
+set   1259: 2002 D 2001 D
+set   1260: 2002 D 2001 D
+set   1261: 2002 D 2001 D
+set   1262: 2002 D 2001 D
+set   1263: 2002 D 2001 D
+set   1264: 2002 D 2001 D
+set   1265: 2002 D 2001 D
+set   1266: 2002 D 2001 D
+set   1267: 2002 D 2001 D
+set   1268: 2002 D 2001 D
+set   1269: 2002 D 2001 D
+set   1270: 2002 D 2001 D
+set   1271: 2002 D 2001 D
+set   1272: 2002 D 2001 D
+set   1273: 2002 D 2001 D
+set   1274: 2002 D 2001 D
+set   1275: 2002 D 2001 D
+set   1276: 2002 D 2001 D
+set   1277: 2002 D 2001 D
+set   1278: 2002 D 2001 D
+set   1279: 2002 D 2001 D
+set   1280: 2002 D 2001 D
+set   1281: 2002 D 2001 D
+set   1282: 2002 D 2001 D
+set   1283: 2002 D 2001 D
+set   1284: 2002 D 2001 D
+set   1285: 2002 D 2001 D
+set   1286: 2002 D 2001 D
+set   1287: 2002 D 2001 D
+set   1288: 2002 D 2001 D
+set   1289: 2002 D 2001 D
+set   1290: 2002 D 2001 D
+set   1291: 2002 D 2001 D
+set   1292: 2002 D 2001 D
+set   1293: 2002 D 2001 D
+set   1294: 2002 D 2001 D
+set   1295: 2002 D 2001 D
+set   1296: 2002 D 2001 D
+set   1297: 2002 D 2001 D
+set   1298: 2002 D 2001 D
+set   1299: 2002 D 2001 D
+set   1300: 2002 D 2001 D
+set   1301: 2002 D 2001 D
+set   1302: 2002 D 2001 D
+set   1303: 2002 D 2001 D
+set   1304: 2002 D 2001 D
+set   1305: 2002 D 2001 D
+set   1306: 2002 D 2001 D
+set   1307: 2002 D 2001 D
+set   1308: 2002 D 2001 D
+set   1309: 2002 D 2001 D
+set   1310: 2002 D 2001 D
+set   1311: 2002 D 2001 D
+set   1312: 2002 D 2001 D
+set   1313: 2002 D 2001 D
+set   1314: 2002 D 2001 D
+set   1315: 2002 D 2001 D
+set   1316: 2002 D 2001 D
+set   1317: 2002 D 2001 D
+set   1318: 2002 D 2001 D
+set   1319: 2002 D 2001 D
+set   1320: 2002 D 2001 D
+set   1321: 2002 D 2001 D
+set   1322: 2002 D 2001 D
+set   1323: 2002 D 2001 D
+set   1324: 2002 D 2001 D
+set   1325: 2002 D 2001 D
+set   1326: 2002 D 2001 D
+set   1327: 2002 D 2001 D
+set   1328: 2002 D 2001 D
+set   1329: 2002 D 2001 D
+set   1330: 2002 D 2001 D
+set   1331: 2002 D 2001 D
+set   1332: 2002 D 2001 D
+set   1333: 2002 D 2001 D
+set   1334: 2002 D 2001 D
+set   1335: 2002 D 2001 D
+set   1336: 2002 D 3d81 D
+set   1337: 2002 D
+set   1338: 2002 D 211a  
+set   1339: 2002 D 3d81 D
+set   1340: 2002 D 3d81 D
+set   1341: 2002 D 3d81 D
+set   1342: 2002 D 2001 D
+set   1343: 2001 D 2002 D
+set   1344: 2002 D 3d81 D
+set   1345: 2002 D 3d81 D
+set   1346: 2002 D 3d81 D
+set   1347: 2002 D 211a  
+set   1348: 2002 D 211a  
+set   1349: 2002 D 3d81 D
+set   1350: 2002 D 3d81 D
+set   1351: 2001 D 2002 D
+set   1352: 2002 D 3d81 D
+set   1353: 2002 D 2001 D
+set   1354: 2002 D 211a  
+set   1355: 2002 D 2001  
+set   1356: 2002 D 211a  
+set   1357: 2002 D 211a  
+set   1358: 2002 D 211a D
+set   1359: 2001 D 2002 D
+set   1360: 2002 D 211a  
+set   1361: 2002 D 211a D
+set   1362: 2002 D 211a D
+set   1363: 2002 D 211a D
+set   1364: 2001   2002 D
+set   1365: 2001   2002 D
+set   1366: 2001   2002 D
+set   1367: 2002 D 211a  
+set   1368: 2001   2002 D
+set   1369: 2002 D 211a  
+set   1370: 2002 D 211a D
+set   1371: 2002 D 211a D
+set   1372: 2002 D 211a D
+set   1373: 2001 D 2002 D
+set   1374: 2001 D 2002 D
+set   1375: 2002 D
+set   1376: 2002 D
+set   1377: 2001   2002 D
+set   1378: 2001 D 2002 D
+set   1379: 2001 D 2002 D
+set   1380: 2002 D 211a  
+set   1381: 2002 D 211a  
+set   1382: 2002 D
+set   1383: 2002 D 2001  
+set   1384: 2002 D
+set   1385: 2002 D
+set   1386: 2001 D 2002 D
+set   1387: 2001 D 2002 D
+set   1388: 2002 D
+set   1389: 2002 D
+set   1390: 2001 D 2002 D
+set   1391: 2001 D 2002 D
+set   1392: 2002 D 2001 D
+set   1393: 2002 D
+set   1394: 2002 D
+set   1395: 2002 D
+set   1396: 2002 D
+set   1397: 2001 D 2002 D
+set   1398: 2002 D
+set   1399: 2002 D
+set   1400: 2002 D
+set   1401: 2002 D
+set   1402: 2002 D
+set   1403: 2001 D 2002 D
+set   1404: 2002 D
+set   1405: 2002 D
+set   1406: 2001 D 2002 D
+set   1407: 2002 D
+set   1408: 2002 D
+set   1409: 2001 D 2002 D
+set   1410: 2002 D
+set   1411: 2002 D
+set   1412: 2002 D
+set   1413: 2002 D
+set   1414: 2002 D
+set   1415: 2002 D
+set   1416: 2002 D
+set   1417: 2002 D
+set   1418: 2002 D
+set   1419:
+set   1420:
+set   1421: 2001 D
+set   1422:
+set   1423:
+set   1424: 2009  
+set   1425:
+set   1426: 2001 D 2009  
+set   1427: 2001   2009  
+set   1428: 2001   2009 D
+set   1429: 2001 D
+set   1430: 2001 D
+set   1431: 2001 D
+set   1432:
+set   1433:
+set   1434:
+set   1435:
+set   1436:
+set   1437:
+set   1438: 2001 D
+set   1439: 2001 D 2009  
+set   1440: 2001 D 2009 D
+set   1441:
+set   1442:
+set   1443:
+set   1444:
+set   1445:
+set   1446:
+set   1447:
+set   1448:
+set   1449:
+set   1450:
+set   1451:
+set   1452: 2001 D
+set   1453: 2001 D
+set   1454: 2001 D
+set   1455:
+set   1456:
+set   1457:
+set   1458:
+set   1459:
+set   1460:
+set   1461:
+set   1462:
+set   1463: 2001 D
+set   1464: 2001 D
+set   1465:
+set   1466:
+set   1467:
+set   1468:
+set   1469:
+set   1470:
+set   1471:
+set   1472:
+set   1473:
+set   1474:
+set   1475:
+set   1476:
+set   1477:
+set   1478:
+set   1479:
+set   1480:
+set   1481:
+set   1482:
+set   1483:
+set   1484:
+set   1485:
+set   1486:
+set   1487:
+set   1488:
+set   1489:
+set   1490:
+set   1491:
+set   1492:
+set   1493:
+set   1494:
+set   1495:
+set   1496:
+set   1497:
+set   1498:
+set   1499: 2001 D
+set   1500: 2001 D
+set   1501:
+set   1502:
+set   1503:
+set   1504: 6f  
+set   1505: 2001 D
+set   1506:
+set   1507: 2001 D
+set   1508: 2001 D
+set   1509:
+set   1510:
+set   1511:
+set   1512:
+set   1513: 2001 D
+set   1514:
+set   1515:
+set   1516:
+set   1517:
+set   1518: 2001 D
+set   1519: 6f  
+set   1520:
+set   1521: 6f  
+set   1522:
+set   1523:
+set   1524: 6f  
+set   1525:
+set   1526:
+set   1527: 6f  
+set   1528:
+set   1529: 6f  
+set   1530:
+set   1531:
+set   1532: 6f  
+set   1533: 2001  
+set   1534: 6f  
+set   1535: 2001 D 6f  
+set   1536: 6f  
+set   1537: 6f  
+set   1538:
+set   1539:
+set   1540: 6f  
+set   1541:
+set   1542:
+set   1543:
+set   1544: 2001  
+set   1545: 2001 D
+set   1546: 2001 D 6f  
+set   1547:
+set   1548:
+set   1549:
+set   1550: 6f  
+set   1551: 2001  
+set   1552: 6f  
+set   1553: 6f  
+set   1554:
+set   1555: 6f  
+set   1556:
+set   1557:
+set   1558:
+set   1559: 6f  
+set   1560: 6f  
+set   1561: 6f  
+set   1562: 6f  
+set   1563:
+set   1564: 6f  
+set   1565: 6f  
+set   1566:
+set   1567:
+set   1568: 6f  
+set   1569: 2009 D
+set   1570:
+set   1571: 6f  
+set   1572: 2009 D
+set   1573: 2009 D
+set   1574:
+set   1575:
+set   1576:
+set   1577: 6f  
+set   1578:
+set   1579:
+set   1580: 2009 D
+set   1581:
+set   1582:
+set   1583:
+set   1584:
+set   1585:
+set   1586:
+set   1587:
+set   1588:
+set   1589:
+set   1590:
+set   1591:
+set   1592: 6f  
+set   1593:
+set   1594: 2009 D
+set   1595:
+set   1596:
+set   1597: 2009 D
+set   1598:
+set   1599:
+set   1600: 2009  
+set   1601: 2009  
+set   1602:
+set   1603:
+set   1604:
+set   1605: 211a  
+set   1606:
+set   1607:
+set   1608:
+set   1609: 6f  
+set   1610:
+set   1611:
+set   1612:
+set   1613:
+set   1614:
+set   1615: 2001 D
+set   1616:
+set   1617:
+set   1618: 2001 D
+set   1619:
+set   1620: 6f  
+set   1621: 2009 D
+set   1622:
+set   1623:
+set   1624: 2009  
+set   1625:
+set   1626:
+set   1627:
+set   1628:
+set   1629:
+set   1630: 2009  
+set   1631:
+set   1632:
+set   1633:
+set   1634:
+set   1635:
+set   1636:
+set   1637: 2009 D
+set   1638:
+set   1639:
+set   1640:
+set   1641: 2009  
+set   1642: 2009  
+set   1643:
+set   1644: 6f  
+set   1645:
+set   1646: 2009  
+set   1647:
+set   1648:
+set   1649:
+set   1650: 2009  
+set   1651: 6f  
+set   1652:
+set   1653:
+set   1654: 2009   6f  
+set   1655: 2009 D
+set   1656: 2001  
+set   1657:
+set   1658:
+set   1659: 2001 D
+set   1660: 6f  
+set   1661:
+set   1662:
+set   1663:
+set   1664:
+set   1665:
+set   1666:
+set   1667:
+set   1668: 2109  
+set   1669:
+set   1670:
+set   1671: 2001 D
+set   1672: 2001 D
+set   1673: 2001 D 2109  
+set   1674: 6f  
+set   1675: 6f  
+set   1676:
+set   1677:
+set   1678: 2001 D
+set   1679: 2001 D
+set   1680:
+set   1681:
+set   1682:
+set   1683:
+set   1684:
+set   1685:
+set   1686:
+set   1687:
+set   1688:
+set   1689:
+set   1690:
+set   1691: 6f  
+set   1692:
+set   1693:
+set   1694:
+set   1695: 2001 D
+set   1696:
+set   1697:
+set   1698:
+set   1699:
+set   1700:
+set   1701:
+set   1702: 6f  
+set   1703:
+set   1704:
+set   1705:
+set   1706:
+set   1707:
+set   1708:
+set   1709:
+set   1710:
+set   1711:
+set   1712:
+set   1713:
+set   1714:
+set   1715:
+set   1716:
+set   1717:
+set   1718:
+set   1719:
+set   1720:
+set   1721:
+set   1722:
+set   1723:
+set   1724:
+set   1725:
+set   1726: 6f  
+set   1727:
+set   1728:
+set   1729:
+set   1730:
+set   1731:
+set   1732:
+set   1733: 6f  
+set   1734:
+set   1735: 6f  
+set   1736:
+set   1737:
+set   1738:
+set   1739:
+set   1740:
+set   1741:
+set   1742:
+set   1743:
+set   1744:
+set   1745:
+set   1746:
+set   1747:
+set   1748:
+set   1749:
+set   1750:
+set   1751:
+set   1752:
+set   1753:
+set   1754:
+set   1755:
+set   1756:
+set   1757:
+set   1758:
+set   1759:
+set   1760:
+set   1761:
+set   1762:
+set   1763:
+set   1764:
+set   1765:
+set   1766:
+set   1767:
+set   1768:
+set   1769:
+set   1770:
+set   1771:
+set   1772:
+set   1773:
+set   1774:
+set   1775:
+set   1776:
+set   1777:
+set   1778:
+set   1779:
+set   1780:
+set   1781:
+set   1782:
+set   1783:
+set   1784:
+set   1785:
+set   1786:
+set   1787:
+set   1788:
+set   1789:
+set   1790:
+set   1791:
+set   1792:
+set   1793:
+set   1794:
+set   1795:
+set   1796:
+set   1797:
+set   1798:
+set   1799:
+set   1800:
+set   1801: 2109  
+set   1802:
+set   1803:
+set   1804: 2109  
+set   1805:
+set   1806:
+set   1807:
+set   1808:
+set   1809:
+set   1810:
+set   1811:
+set   1812:
+set   1813:
+set   1814:
+set   1815:
+set   1816:
+set   1817:
+set   1818:
+set   1819:
+set   1820:
+set   1821:
+set   1822:
+set   1823:
+set   1824:
+set   1825:
+set   1826:
+set   1827: 2001 D
+set   1828:
+set   1829: 2001 D
+set   1830: 2001 D
+set   1831: 2001 D
+set   1832: 2001 D
+set   1833: 2001 D
+set   1834: 2001 D
+set   1835: 2001 D
+set   1836: 2001 D
+set   1837: 2001 D
+set   1838: 2001 D
+set   1839: 2001 D
+set   1840: 2001 D
+set   1841: 2001 D
+set   1842: 2001 D
+set   1843: 2001 D
+set   1844: 2001 D
+set   1845: 2001 D
+set   1846: 2001 D
+set   1847: 2001 D
+set   1848: 2001 D
+set   1849: 2001 D
+set   1850: 2001 D
+set   1851: 2001 D
+set   1852: 2000   2001 D
+set   1853: 2000   2001 D
+set   1854: 2000   2001 D
+set   1855: 2000   2001 D
+set   1856: 2001 D
+set   1857: 2001 D 6f  
+set   1858: 2001 D
+set   1859: 2001 D
+set   1860: 2001 D 6f  
+set   1861: 2001 D
+set   1862: 2001 D
+set   1863: 2001 D 6f  
+set   1864: 2001 D
+set   1865: 2001 D
+set   1866: 2001 D 6f  
+set   1867: 2001 D 6f  
+set   1868: 2001 D
+set   1869: 2001 D
+set   1870: 2001 D
+set   1871: 2001 D
+set   1872: 2001 D
+set   1873: 2001 D
+set   1874: 2001 D
+set   1875: 2001 D
+set   1876: 2001 D
+set   1877: 2001 D
+set   1878: 2001 D
+set   1879: 2001 D
+set   1880: 2001 D
+set   1881: 2001 D
+set   1882: 2001 D
+set   1883: 2001 D
+set   1884: 2001 D
+set   1885: 2001 D
+set   1886: 2001 D
+set   1887: 2001 D
+set   1888: 2001 D
+set   1889: 2001 D
+set   1890: 2001 D
+set   1891: 2001 D
+set   1892: 2001 D
+set   1893: 2001 D
+set   1894: 2001 D
+set   1895: 2001 D
+set   1896: 2001 D
+set   1897: 2001 D
+set   1898: 2001 D
+set   1899: 2001 D
+set   1900: 2001 D
+set   1901: 2001 D
+set   1902: 2001 D
+set   1903: 2001 D
+set   1904: 2001 D
+set   1905: 2001 D
+set   1906: 2001 D
+set   1907: 2001 D
+set   1908: 2001 D
+set   1909: 2001 D
+set   1910: 2001 D
+set   1911: 2001 D
+set   1912: 2001 D
+set   1913: 2001 D
+set   1914: 2001 D
+set   1915: 2001 D
+set   1916: 2001 D
+set   1917: 2001 D
+set   1918: 2001 D
+set   1919: 2001 D
+set   1920: 2001 D
+set   1921: 2001 D
+set   1922: 2001 D
+set   1923: 2001 D
+set   1924: 2001 D
+set   1925: 2001 D
+set   1926: 2001 D
+set   1927: 2001 D
+set   1928: 2001 D
+set   1929: 2001 D
+set   1930: 2001 D
+set   1931: 2001 D
+set   1932: 2001 D
+set   1933: 2001 D
+set   1934: 2001 D
+set   1935: 2001 D
+set   1936: 2001 D
+set   1937: 2001 D
+set   1938: 2001 D
+set   1939: 2001 D
+set   1940: 2001 D
+set   1941: 2001 D
+set   1942: 2001 D
+set   1943: 2001 D
+set   1944: 2001 D
+set   1945: 2001 D
+set   1946: 2001 D
+set   1947:
+set   1948:
+set   1949:
+set   1950:
+set   1951:
+set   1952: 2001 D
+set   1953:
+set   1954:
+set   1955:
+set   1956:
+set   1957:
+set   1958: 2001 D
+set   1959:
+set   1960:
+set   1961:
+set   1962:
+set   1963:
+set   1964:
+set   1965:
+set   1966: 2001 D
+set   1967: 2001 D
+set   1968: 2001 D
+set   1969: 2001 D
+set   1970: 2001 D
+set   1971: 2001 D
+set   1972:
+set   1973:
+set   1974:
+set   1975:
+set   1976:
+set   1977: 2001 D
+set   1978:
+set   1979:
+set   1980: 2001 D 2000  
+set   1981: 2000  
+set   1982: 2000  
+set   1983: 2000  
+set   1984: 2001 D
+set   1985:
+set   1986: 2000  
+set   1987: 2000  
+set   1988: 2000  
+set   1989: 2000  
+set   1990: 2000  
+set   1991: 2001   2000  
+set   1992:
+set   1993:
+set   1994: 2000  
+set   1995: 2000  
+set   1996: 2000  
+set   1997:
+set   1998:
+set   1999:
+set   2000:
+set   2001:
+set   2002: 2000  
+set   2003: 2000  
+set   2004: 2000  
+set   2005: 2000  
+set   2006:
+set   2007:
+set   2008: 2000  
+set   2009:
+set   2010:
+set   2011:
+set   2012:
+set   2013:
+set   2014:
+set   2015:
+set   2016:
+set   2017:
+set   2018:
+set   2019:
+set   2020: 2001 D
+set   2021: 2001 D
+set   2022:
+set   2023: 2001 D
+set   2024: 2001 D
+set   2025: 2001 D
+set   2026: 2001 D
+set   2027: 2001  
+set   2028: 2001 D
+set   2029:
+set   2030: 2001 D
+set   2031: 2001 D
+set   2032:
+set   2033:
+set   2034:
+set   2035: 2001 D
+set   2036: 2001 D
+set   2037:
+set   2038: 2001 D
+set   2039: 211c  
+set   2040:
+set   2041:
+set   2042:
+set   2043: 2001 D
+set   2044:
+set   2045:
+set   2046:
+set   2047:
+
+===== Measurements =====
+a. L1 reads:                   63640
+b. L1 read misses:             3576
+c. L1 writes:                  36360
+d. L1 write misses:            2613
+e. L1 miss rate:               0.0619
+f. L1 writebacks:              3011
+g. L1 prefetches:              0
+h. L2 reads (demand):          6189
+i. L2 read misses (demand):    1454
+j. L2 reads (prefetch):        0
+k. L2 read misses (prefetch):  0
+l. L2 writes:                  3011
+m. L2 write misses:            0
+n. L2 miss rate:               0.2349
+o. L2 writebacks:              39
+p. L2 prefetches:              0
+q. memory traffic:             1493

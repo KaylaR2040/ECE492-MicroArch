@@ -4,10 +4,17 @@
 #include <iomanip>
 #include <iostream>
 
-static inline bool is_pow2(uint32_t x) { return x && !(x & (x-1)); }
+static inline bool is_pow2(uint32_t x) 
+{ 
+    return x && !(x & (x-1)); 
+}
 
+// Parse and validate CLI
 bool parse_args(int argc, char* argv[], CacheParams& P, std::string& err) {
-    if (argc != 9) { err = "Expected 8 command-line arguments."; return false; }
+    if (argc != 9) 
+    { 
+        err = "Expected 8 CLI"; return false; 
+    }
 
     P.BLOCKSIZE = (uint32_t) std::stoul(argv[1]);
     P.L1_SIZE   = (uint32_t) std::stoul(argv[2]);
@@ -18,35 +25,60 @@ bool parse_args(int argc, char* argv[], CacheParams& P, std::string& err) {
     P.PREF_M    = (uint32_t) std::stoul(argv[7]);
     P.trace_file = argv[8];
 
-    // 1) BLOCKSIZE must be power-of-two
-    if (!is_pow2(P.BLOCKSIZE)) { err = "BLOCKSIZE must be a power of two."; return false; }
+    // 1. BLOCKSIZE must be power-of-two
+    if (!is_pow2(P.BLOCKSIZE)) 
+    { err = "BLOCKSIZE must be a power of two."; return false; }
 
-    // 2) L1 geometry
-    if (P.L1_ASSOC == 0) { err = "L1_ASSOC must be >= 1."; return false; }
-    if (P.L1_SIZE == 0 || (P.L1_SIZE % (P.BLOCKSIZE * P.L1_ASSOC)) != 0) {
+    // 2. L1 geometry
+    if (P.L1_ASSOC == 0) 
+    { 
+        err = "L1_ASSOC must be >= 1."; return false; 
+    }
+    if (P.L1_SIZE == 0 || (P.L1_SIZE % (P.BLOCKSIZE * P.L1_ASSOC)) != 0) 
+    {
         err = "L1 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC."; return false;
     }
+    else
     {
         uint32_t sets = (P.L1_SIZE / P.BLOCKSIZE) / P.L1_ASSOC;
-        if (!is_pow2(sets)) { err = "L1 number of sets must be a power of two."; return false; }
+        if (!is_pow2(sets)) 
+        { 
+            err = "L1 number of sets must be a power of two."; return false; 
+        }
     }
 
-    // 3) L2 geometry (if present)
-    if (P.L2_SIZE == 0) {
-        if (P.L2_ASSOC != 0) { err = "If L2_SIZE is 0, L2_ASSOC must be 0."; return false; }
-    } else {
-        if (P.L2_ASSOC == 0) { err = "L2_ASSOC must be >= 1."; return false; }
-        if ((P.L2_SIZE % (P.BLOCKSIZE * P.L2_ASSOC)) != 0) {
+    // 3. L2 geometry (maybe? only if present)
+    if (P.L2_SIZE == 0) 
+    {
+        if (P.L2_ASSOC != 0) 
+        { 
+            err = "If L2_SIZE is 0, L2_ASSOC must be 0."; return false; 
+        }
+    } 
+    else
+    {
+        if (P.L2_ASSOC == 0) 
+        { 
+            err = "L2_ASSOC must be >= 1."; return false; 
+        }
+
+        if ((P.L2_SIZE % (P.BLOCKSIZE * P.L2_ASSOC)) != 0) 
+        {
             err = "L2 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC."; return false;
         }
+
         uint32_t sets = (P.L2_SIZE / P.BLOCKSIZE) / P.L2_ASSOC;
-        if (!is_pow2(sets)) { err = "L2 number of sets must be a power of two."; return false; }
+
+        if (!is_pow2(sets)) 
+        { 
+            err = "L2 number of sets must be a power of two."; return false; 
+        }
     }
     return true;
 }
 
 bool open_trace(const std::string& path, FILE*& fp) {
-    fp = std::fopen(path.c_str(), "r");  // Gradescope is read-only
+    fp = std::fopen(path.c_str(), "r");  // MAKE READ-ONLLY FOR GRADESCOPE
     return fp != nullptr;
 }
 
@@ -76,12 +108,18 @@ void print_config(const CacheParams& P) {
 static inline double l1_miss_rate(uint64_t r_miss, uint64_t w_miss,
                                   uint64_t r, uint64_t w) {
     const double denom = double(r + w);
-    if (denom == 0.0) return 0.0;
+    if (denom == 0.0) 
+    {
+        return 0.0;
+    }
     return double(r_miss + w_miss) / denom;
 }
 
 static inline double l2_miss_rate(uint64_t rd_miss, uint64_t rd) {
-    if (rd == 0) return 0.0;
+    if (rd == 0) 
+    {
+        return 0.0;
+    }
     return double(rd_miss) / double(rd);
 }
 
@@ -111,7 +149,9 @@ void print_results(const Cache& L1, const Cache* L2) {
         std::cout << "o. L2 writebacks:              " << L2->writebacks()   << "\n";
         std::cout << "p. L2 prefetches:              0\n";
         std::cout << "q. memory traffic:             " << (L2->memory_reads() + L2->memory_writes()) << "\n";
-    } else {
+    } 
+    else 
+    {
         std::cout << "h. L2 reads (demand):          0\n";
         std::cout << "i. L2 read misses (demand):    0\n";
         std::cout << "j. L2 reads (prefetch):        0\n";

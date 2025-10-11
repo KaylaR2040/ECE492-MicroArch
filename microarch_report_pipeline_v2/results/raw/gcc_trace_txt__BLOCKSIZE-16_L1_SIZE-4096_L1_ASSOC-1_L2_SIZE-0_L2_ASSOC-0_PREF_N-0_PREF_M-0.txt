@@ -1,0 +1,286 @@
+===== Simulator configuration =====
+BLOCKSIZE:  16
+L1_SIZE:    4096
+L1_ASSOC:   1
+L2_SIZE:    0
+L2_ASSOC:   0
+PREF_N:     0
+PREF_M:     0
+trace_file: ../traces/gcc_trace.txt
+
+===== L1 contents =====
+set      0: 40033 D
+set      1: 40033 D
+set      2: 40033 D
+set      3: 40033 D
+set      4: 40033 D
+set      5: 40033 D
+set      6: 40056 D
+set      7: 40036 D
+set      8: 40056 D
+set      9: 4001f  
+set     10: 40056 D
+set     11: 40056 D
+set     12: 40056 D
+set     13: 40056 D
+set     14: 40056 D
+set     15: 40056 D
+set     16: 40056 D
+set     17: 40056 D
+set     18: 40056 D
+set     19: 40056 D
+set     20: 40056 D
+set     21: 40056 D
+set     22: 40056 D
+set     23: 40056 D
+set     24: 4001f  
+set     25: 40056 D
+set     26: 40056 D
+set     27: 40056 D
+set     28: 40056 D
+set     29: 40035 D
+set     30: 40056 D
+set     31: 4003f D
+set     32: 4003a D
+set     33: 4003a D
+set     34: 40038 D
+set     35: 40056 D
+set     36: 40048  
+set     37: 40038  
+set     38: 40038 D
+set     39: 40038 D
+set     40: 40029  
+set     41: 4001f  
+set     42: 40055 D
+set     43: 40001  
+set     44: 40001  
+set     45: 40001  
+set     46: 40001  
+set     47: 40001  
+set     48: 40001  
+set     49: 40001  
+set     50: 40001  
+set     51: 40001  
+set     52: 40001  
+set     53: 40001  
+set     54: 40001  
+set     55: 40051 D
+set     56: 40031 D
+set     57: 40031  
+set     58: 4003a D
+set     59: 4003a D
+set     60: 40051 D
+set     61: 40038  
+set     62: 40051 D
+set     63: 40035 D
+set     64: 40031  
+set     65: 40051 D
+set     66: 40051 D
+set     67: 40054 D
+set     68: 40031  
+set     69: 40031  
+set     70: 40051 D
+set     71: 40031  
+set     72: 40031  
+set     73: 4002f D
+set     74: 4002f  
+set     75: 40031  
+set     76: 40036 D
+set     77: 40031  
+set     78: 4001f  
+set     79: 40036 D
+set     80: 40036 D
+set     81: 4001f  
+set     82: 4001f  
+set     83: 40036 D
+set     84: 4001f  
+set     85: 40035  
+set     86: 40035  
+set     87: 40027  
+set     88: 4003e  
+set     89: 40035  
+set     90: 40036 D
+set     91: 40027  
+set     92: 40027  
+set     93: 40027  
+set     94: 40044 D
+set     95: 40027  
+set     96: 40051 D
+set     97: 40035  
+set     98: 4002a D
+set     99: 40027  
+set    100: 40044 D
+set    101: 40027  
+set    102: 40051 D
+set    103: 40051 D
+set    104: 4003e D
+set    105: 40051 D
+set    106: 40051 D
+set    107: 40051 D
+set    108: 40044 D
+set    109: 40051 D
+set    110: 40051 D
+set    111: 40037 D
+set    112: 4002f D
+set    113: 4002f D
+set    114: 40051 D
+set    115: 4002f D
+set    116: 40051 D
+set    117: 40035 D
+set    118: 40051 D
+set    119: 40035  
+set    120: 40051 D
+set    121: 40035  
+set    122: 40036 D
+set    123: 40036 D
+set    124: 40051 D
+set    125: 40051 D
+set    126: 40051 D
+set    127: 40051 D
+set    128: 40051 D
+set    129: 4003e D
+set    130: 40036 D
+set    131: 40051 D
+set    132: 40051 D
+set    133: 40051 D
+set    134: 40051 D
+set    135: 40035 D
+set    136: 40051 D
+set    137: 40051 D
+set    138: 40051 D
+set    139: 40051 D
+set    140: 40035 D
+set    141: 40051 D
+set    142: 40035  
+set    143: 40051 D
+set    144: 7b033 D
+set    145: 40051 D
+set    146: 40051 D
+set    147: 7b033 D
+set    148: 4003f D
+set    149: 40042 D
+set    150: 40042 D
+set    151: 40051 D
+set    152: 40051 D
+set    153: 40051 D
+set    154: 40051 D
+set    155: 40051 D
+set    156: 40051 D
+set    157: 40051 D
+set    158: 40051 D
+set    159: 40051 D
+set    160: 40051 D
+set    161: 40051 D
+set    162: 40051 D
+set    163: 40051 D
+set    164: 40051 D
+set    165: 40051 D
+set    166: 40051 D
+set    167: 40051 D
+set    168: 40051 D
+set    169: 40051 D
+set    170: 40051 D
+set    171: 40051 D
+set    172: 40051 D
+set    173: 40051 D
+set    174: 40051 D
+set    175: 40051 D
+set    176: 40051 D
+set    177: 40051 D
+set    178: 40051 D
+set    179: 40051 D
+set    180: 40051 D
+set    181: 40051 D
+set    182: 40051 D
+set    183: 40051 D
+set    184: 40051 D
+set    185: 40051 D
+set    186: 40051 D
+set    187: 40051 D
+set    188: 40051 D
+set    189: 40031 D
+set    190: 40031 D
+set    191: 40031 D
+set    192: 40051 D
+set    193: 40051 D
+set    194: 40051 D
+set    195: 40051 D
+set    196: 40051 D
+set    197: 40051 D
+set    198: 40051 D
+set    199: 40051 D
+set    200: 40051 D
+set    201: 40051 D
+set    202: 40051 D
+set    203: 40055 D
+set    204: 40055 D
+set    205: 40055 D
+set    206: 4003e D
+set    207: 40055 D
+set    208: 40055 D
+set    209: 40055 D
+set    210: 40055 D
+set    211: 40054 D
+set    212: 40054 D
+set    213: 40035  
+set    214: 40055 D
+set    215: 40054 D
+set    216: 40054 D
+set    217: 40055 D
+set    218: 40055 D
+set    219: 4003f D
+set    220: 40055 D
+set    221: 40055 D
+set    222: 40055 D
+set    223: 40055 D
+set    224: 40039  
+set    225: 40055 D
+set    226: 40055 D
+set    227: 40055 D
+set    228: 4003e D
+set    229: 40055 D
+set    230: 40055 D
+set    231: 40055 D
+set    232: 40031 D
+set    233: 40031 D
+set    234: 40047  
+set    235: 40047  
+set    236: 40047  
+set    237: 40047  
+set    238: 40047  
+set    239: 40047  
+set    240: 40047  
+set    241: 40047  
+set    242: 40047  
+set    243: 40047  
+set    244: 40047  
+set    245: 40047  
+set    246: 40047  
+set    247: 40047  
+set    248: 40031 D
+set    249: 40055 D
+set    250: 40035 D
+set    251: 4001e  
+set    252: 40034 D
+set    253: 4001c  
+set    254: 40032 D
+set    255: 40032 D
+
+===== Measurements =====
+a. L1 reads:                   63640
+b. L1 read misses:             5131
+c. L1 writes:                  36360
+d. L1 write misses:            5893
+e. L1 miss rate:               0.1102
+f. L1 writebacks:              6257
+g. L1 prefetches:              0
+h. L2 reads (demand):          0
+i. L2 read misses (demand):    0
+j. L2 reads (prefetch):        0
+k. L2 read misses (prefetch):  0
+l. L2 writes:                  0
+m. L2 write misses:            0
+n. L2 miss rate:               0.0000
+o. L2 writebacks:              0
+p. L2 prefetches:              0
+q. memory traffic:             17281

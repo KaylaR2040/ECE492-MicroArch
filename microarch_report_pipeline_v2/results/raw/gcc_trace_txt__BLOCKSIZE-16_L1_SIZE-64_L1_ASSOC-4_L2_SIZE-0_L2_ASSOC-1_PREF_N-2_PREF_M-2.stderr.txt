@@ -1,0 +1,1 @@
+Error: If L2_SIZE is 0, L2_ASSOC must be 0.

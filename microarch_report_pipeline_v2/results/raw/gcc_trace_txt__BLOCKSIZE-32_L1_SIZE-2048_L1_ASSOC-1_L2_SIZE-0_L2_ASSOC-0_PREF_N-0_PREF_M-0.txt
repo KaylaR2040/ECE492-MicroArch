@@ -1,0 +1,94 @@
+===== Simulator configuration =====
+BLOCKSIZE:  32
+L1_SIZE:    2048
+L1_ASSOC:   1
+L2_SIZE:    0
+L2_ASSOC:   0
+PREF_N:     0
+PREF_M:     0
+trace_file: ../traces/gcc_trace.txt
+
+===== L1 contents =====
+set      0: 80066 D
+set      1: 80066 D
+set      2: 80066 D
+set      3: 8006b D
+set      4: 800a3 D
+set      5: 800a3 D
+set      6: 8006b D
+set      7: 8006b  
+set      8: f6067 D
+set      9: f6067 D
+set     10: 80085 D
+set     11: 80085 D
+set     12: 800a3 D
+set     13: 800a3 D
+set     14: 800a3 D
+set     15: 8007e D
+set     16: 800a3 D
+set     17: 80070 D
+set     18: 800a3  
+set     19: 800a3 D
+set     20: 8003e  
+set     21: 80002  
+set     22: 80002  
+set     23: 80002  
+set     24: 80002  
+set     25: 80002  
+set     26: 80002  
+set     27: 80002  
+set     28: 800a3 D
+set     29: 800a3 D
+set     30: 80063 D
+set     31: 80063 D
+set     32: 80062  
+set     33: 800a3 D
+set     34: 80062  
+set     35: 80062  
+set     36: 8005e D
+set     37: 8005e  
+set     38: 80062  
+set     39: 8003e  
+set     40: 8003e  
+set     41: 8003e  
+set     42: 8003e  
+set     43: 8004e  
+set     44: 8007c  
+set     45: 8004e  
+set     46: 8004e  
+set     47: 8004e  
+set     48: 8006a  
+set     49: 80054 D
+set     50: 80088 D
+set     51: 800a2 D
+set     52: 80063 D
+set     53: 8008f  
+set     54: 8008f  
+set     55: 8008f  
+set     56: 8005e D
+set     57: 8008f  
+set     58: 8008f  
+set     59: 8006a  
+set     60: 80063 D
+set     61: 8006c D
+set     62: 80069 D
+set     63: 80065 D
+
+===== Measurements =====
+a. L1 reads:                   63640
+b. L1 read misses:             8905
+c. L1 writes:                  36360
+d. L1 write misses:            5869
+e. L1 miss rate:               0.1477
+f. L1 writebacks:              6713
+g. L1 prefetches:              0
+h. L2 reads (demand):          0
+i. L2 read misses (demand):    0
+j. L2 reads (prefetch):        0
+k. L2 read misses (prefetch):  0
+l. L2 writes:                  0
+m. L2 write misses:            0
+n. L2 miss rate:               0.0000
+o. L2 writebacks:              0
+p. L2 prefetches:              0
+q. memory traffic:             21487

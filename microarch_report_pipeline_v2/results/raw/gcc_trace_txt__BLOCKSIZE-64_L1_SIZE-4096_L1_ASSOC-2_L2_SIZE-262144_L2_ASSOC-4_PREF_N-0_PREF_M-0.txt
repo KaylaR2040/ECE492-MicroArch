@@ -1,0 +1,1088 @@
+===== Simulator configuration =====
+BLOCKSIZE:  64
+L1_SIZE:    4096
+L1_ASSOC:   2
+L2_SIZE:    262144
+L2_ASSOC:   4
+PREF_N:     0
+PREF_M:     0
+trace_file: ../traces/gcc_trace.txt
+
+===== L1 contents =====
+set      0: 80066 D 8007d D
+set      1: 8006b D 80066 D
+set      2: 800a3 D 8006b D
+set      3: 8006b D 800a3 D
+set      4: f6067 D 800a3 D
+set      5: 80085 D 8007f D
+set      6: 800a3 D 8007d D
+set      7: 8007e D 800a3 D
+set      8: 80070 D 800a3 D
+set      9: 800a3 D 80090  
+set     10: 80002   8003e  
+set     11: 80002   8003e  
+set     12: 80002   8003e  
+set     13: 80002   800a3 D
+set     14: 800a3 D 80063 D
+set     15: 80063 D 800a3 D
+set     16: 80062   800a3 D
+set     17: 80062   800a3 D
+set     18: 8005e D 8003e  
+set     19: 8003e   80062  
+set     20: 8003e   8006c D
+set     21: 8003e   8004e  
+set     22: 8007c   8006a  
+set     23: 8004e   80088 D
+set     24: 80054 D 8004e  
+set     25: 80088 D 8004e  
+set     26: 80063 D 8008f  
+set     27: 8008f   8006e D
+set     28: 8005e D 8008f  
+set     29: 8006a D 8008f  
+set     30: 80063 D 8006a  
+set     31: 80065 D 80069 D
+
+===== L2 contents =====
+set      0: 4003 D 4005 D
+set      1: 4003 D 4005 D 423b  
+set      2: 4003 D 4005 D
+set      3: 4003 D 4005 D
+set      4: 4003 D 4005 D
+set      5: 4003 D 4005 D
+set      6: 4003 D 4005 D
+set      7: 4003 D 4005 D
+set      8: 4003 D 4005 D
+set      9: 4003 D 4005 D
+set     10: 4003 D 4005 D
+set     11: 4003 D 4005 D
+set     12: 4003 D 4005 D 423b  
+set     13: 4003 D 4005 D 423b  
+set     14: 4003 D 4005 D 423b  
+set     15: 4003 D 4005 D 423b  
+set     16: 4003 D 4005 D 423b  
+set     17: 4003 D 4005 D 423b  
+set     18: 4003 D 4005 D 423b  
+set     19: 4003 D 4005 D
+set     20: 4003 D 4005 D 423b  
+set     21: 4003 D 4005 D
+set     22: 4003 D 4005 D
+set     23: 4003 D 4005 D
+set     24: 4003 D 4005 D
+set     25: 4003 D 4005 D
+set     26: 4003 D 4005 D
+set     27: 4003 D 4005 D
+set     28: 4003 D 4005 D
+set     29: 4003 D 4005 D
+set     30: 4003 D 4005 D
+set     31: 4003 D 4005 D
+set     32: 4003 D 4005 D
+set     33: 4003 D 4005 D 423b D
+set     34: 4003 D 4005 D
+set     35: 4003 D 4005 D
+set     36: 4003 D 4005 D
+set     37: 4003 D 4005 D
+set     38: 4003 D 4005 D
+set     39: 4003 D 4005 D 423b D
+set     40: 4003 D 4005 D 423b D
+set     41: 4003 D 4005 D 423b D
+set     42: 4003 D 4005 D
+set     43: 4003 D 4005 D
+set     44: 4003 D 4005 D
+set     45: 4003 D 4005 D
+set     46: 4003 D 4005 D
+set     47: 4003 D 4005 D
+set     48: 4003 D 4005 D
+set     49: 4003 D 4005 D
+set     50: 4003 D 4005 D
+set     51: 4003 D 4005 D
+set     52: 4003 D 4005 D
+set     53: 4003 D 4005 D
+set     54: 4003 D 4005 D
+set     55: 4003 D 4005 D
+set     56: 4003 D 4005 D
+set     57: 4003 D 4005 D
+set     58: 4003 D 4005 D
+set     59: 4003 D 4005 D
+set     60: 4003 D 4005 D
+set     61: 4003 D 4005 D
+set     62: 4003 D 4005 D
+set     63: 4003 D 4005 D
+set     64: 4003 D 4005 D
+set     65: 4003 D 4005 D
+set     66: 4003 D 4005 D
+set     67: 4003 D 4005 D
+set     68: 4003 D 4005 D
+set     69: 4003 D 4005 D
+set     70: 4003 D 4005 D
+set     71: 4003 D 4005 D
+set     72: 4003 D 4005 D
+set     73: 4003 D 4005 D
+set     74: 4000   4003 D 4005 D
+set     75: 4000   4005 D 4003 D
+set     76: 4000   4005 D 4003 D
+set     77: 4000   4005 D 4003 D
+set     78: 4003 D 4005 D
+set     79: 4005 D
+set     80: 4003   4005 D
+set     81: 4003   4005 D
+set     82: 4003   4005 D
+set     83: 4003   4005 D
+set     84: 4005 D
+set     85: 4005 D
+set     86: 4003 D 4005 D 4000  
+set     87: 4005 D
+set     88: 4005 D
+set     89: 4005 D
+set     90: 4005 D 4003 D
+set     91: 4005 D 4003 D
+set     92: 4005 D 4003 D
+set     93: 4005 D 4003 D
+set     94: 4005 D 4003 D
+set     95: 4005 D 4003 D
+set     96: 4005 D 4003 D
+set     97: 4005 D 4003 D
+set     98: 4005  
+set     99: 4005  
+set    100: 4005  
+set    101: 4005 D
+set    102: 4005  
+set    103: 4005  
+set    104: 4005  
+set    105: 4005 D
+set    106: 4005 D
+set    107: 4005 D 4002 D
+set    108: 4005 D
+set    109: 4003 D 4005  
+set    110: 4005   4003   4002  
+set    111: 4005   4003   4002  
+set    112: 4005   4002  
+set    113: 4005  
+set    114: 4005 D
+set    115:
+set    116: 4005 D
+set    117: 4005 D 4002  
+set    118: 4005 D
+set    119: 4005 D 4235  
+set    120: 4005 D 4235  
+set    121: 4235  
+set    122: 4003 D
+set    123:
+set    124:
+set    125: 4003 D
+set    126: 4003 D 4000  
+set    127: 4003 D
+set    128:
+set    129:
+set    130:
+set    131: 4003 D 4000  
+set    132: 4000  
+set    133: 4003 D 4000  
+set    134:
+set    135:
+set    136:
+set    137: 4003 D
+set    138: 4003 D
+set    139:
+set    140: 4003 D
+set    141: 4003 D
+set    142: 4003 D 4000 D
+set    143:
+set    144: 4003 D
+set    145: 4003 D 4000  
+set    146: 4003 D 4000  
+set    147: 4003 D
+set    148: 4003 D
+set    149:
+set    150:
+set    151: 4000  
+set    152: 4003 D 4000  
+set    153: 4004   4003  
+set    154: 4003 D 4004 D
+set    155: 4000  
+set    156: 4003 D
+set    157:
+set    158: 4003 D
+set    159: 4000  
+set    160:
+set    161: 4000  
+set    162: 4004  
+set    163:
+set    164:
+set    165: 4004   4003 D
+set    166: 4004 D 4003 D 4000  
+set    167: 4004 D 4003 D
+set    168: 4004 D
+set    169: 4004 D 4003 D
+set    170: 4004 D
+set    171: 4004 D
+set    172: 4004 D 4003 D
+set    173: 4004 D 4003 D
+set    174: 4004 D
+set    175: 4004 D 4235  
+set    176: 4004 D
+set    177: 4004 D 4003 D
+set    178: 4004 D 4003 D 4002 D
+set    179: 4004 D 4002 D
+set    180: 4004 D 4003 D
+set    181: 4004 D
+set    182: 4004 D 4003 D
+set    183: 4004 D 4003 D 4002 D
+set    184: 4005 D 4004 D 4003 D
+set    185: 4005 D 4004 D 4003 D 4002 D
+set    186: 4005 D 4004 D 4003 D 4002 D
+set    187: 4005 D 4004 D
+set    188: 4005 D 4004 D 4003 D
+set    189: 4005 D 4004 D
+set    190: 4005 D 4004 D
+set    191: 4003   4005 D 4004 D
+set    192: 4003   4005 D 4004 D
+set    193: 4003   4005 D 4004 D
+set    194: 4005 D 4004 D
+set    195: 4005 D 4004 D
+set    196: 4005 D 4004 D
+set    197: 4005 D 4004 D 4003 D
+set    198: 4005 D 4004 D 4003 D
+set    199: 4005 D 4004 D 4003 D
+set    200: 4005 D 4004 D 4003 D
+set    201: 4005 D 4004 D 4003 D
+set    202: 4005 D 4004 D 4003 D
+set    203: 4005 D 4004 D 4003 D
+set    204: 4005 D 4004 D 4003 D
+set    205: 4005 D 4004 D 4003 D
+set    206: 4005 D 4004 D 4003 D
+set    207: 4004 D 4005 D 4003 D 4000  
+set    208: 4005 D 4004 D 4003 D 4000  
+set    209: 4005 D 4004 D 4003 D
+set    210: 4005 D 4004 D 4003 D
+set    211: 4004 D 4005 D 4003 D
+set    212: 4005 D 4004 D 4003 D
+set    213: 4005 D 4004 D 4003 D
+set    214: 4005 D 4004 D 4003 D
+set    215: 4005 D 4004 D 4003 D
+set    216: 4005 D 4004 D 4003 D
+set    217: 4005 D 4004 D 4003 D
+set    218: 4005 D 4004 D 4003 D
+set    219: 4004 D 4005 D 4003 D
+set    220: 4005 D 4004 D 4003 D
+set    221: 4005 D 4004 D 4003 D 4002 D
+set    222: 4005 D 4004 D 4003 D 4002 D
+set    223: 4005 D 4004 D 4003 D
+set    224: 4005 D 4004 D 4003 D
+set    225: 4005 D 4004 D 4003 D
+set    226: 4005 D 4004 D 4003 D 4002 D
+set    227: 4005 D 4004 D 4003 D 4000  
+set    228: 7b03   4005 D 4004 D 4003 D
+set    229: 7b03 D 4005 D 4004 D 4003 D
+set    230: 4005 D 4004 D 4003 D
+set    231: 4005 D 4004 D 4003 D 7b03 D
+set    232: 7b03 D 4005 D 4004 D 4003 D
+set    233: 4005 D 4004 D 4003 D 4002 D
+set    234: 4005 D 4004 D 4003 D
+set    235: 4005 D 4004 D 4003 D 7b03 D
+set    236: 4005 D 4004 D 4003 D 4002 D
+set    237: 4005 D 4004 D 4003 D 4002 D
+set    238: 4005 D 4004 D 4003 D 7b03 D
+set    239: 4005 D 4004 D 4003 D 7b03 D
+set    240: 4005 D 4003 D 4004 D
+set    241: 4005 D 4004 D 4003 D
+set    242: 4005 D 4004 D 4003 D 4002  
+set    243: 4005 D 4004 D 4003 D
+set    244: 4005 D 4003 D 4004 D
+set    245: 4005 D 4004 D 4003 D
+set    246: 4005 D 4004 D 4003 D
+set    247: 4005 D 4004 D 4003 D
+set    248: 4005 D 4004 D 4003 D
+set    249: 4005 D 4004 D 4003 D
+set    250: 4005 D 4004 D 4003 D
+set    251: 4005 D 4004 D 4003 D
+set    252: 4005 D 4003 D 4004 D
+set    253: 4005 D 4004 D 4003 D
+set    254: 4005 D 4004 D 4003 D
+set    255: 4005 D 4004 D 4003 D
+set    256: 4005 D 4004 D 4003 D
+set    257: 4005 D 4004 D 4003 D
+set    258: 4005 D 4004 D 4003 D
+set    259: 4005 D 4004 D 4003 D 38  
+set    260: 4005 D 4004 D 4003 D 38  
+set    261: 4005 D 4004 D 4003 D
+set    262: 4005 D 4004 D 4003 D
+set    263: 4005 D 4004 D 4003 D
+set    264: 4005 D 4004 D 4003 D
+set    265: 4005 D 4004 D 4003 D
+set    266: 4005 D 4004 D 4003 D
+set    267: 4005 D 4004 D 4003 D
+set    268: 4005 D 4004 D 4003 D
+set    269: 4005 D 4004 D 4003 D
+set    270: 4005 D 4004 D 4003 D 7b03 D
+set    271: 4005 D 4004 D 4003 D 7b03 D
+set    272: 4005 D 4004 D 4003 D 7b03  
+set    273: 4005 D 4004 D 4003 D 7b03  
+set    274: 4005 D 4004 D 4003 D 7b03 D
+set    275: 4005 D 4004 D 4003 D 7b03 D
+set    276: 4005 D 4004 D 4003 D 7b03 D
+set    277: 4005 D 4004 D 4003 D
+set    278: 4004 D 4005 D 4003 D 7b03  
+set    279: 4004   4005 D 4003 D 7b03  
+set    280: 4004 D 4005 D 4003 D
+set    281: 4004   4005 D 4003 D
+set    282: 4005 D 4003 D
+set    283: 4004 D 4005 D 4003 D
+set    284: 4005 D 4003 D
+set    285: 4005 D 4003 D
+set    286: 4005 D 4003 D
+set    287: 4005 D 4003 D
+set    288: 4005 D 4003 D
+set    289: 4005 D 4003 D
+set    290: 4005 D 4003 D
+set    291: 4005 D 4003 D
+set    292: 4005 D 4003 D
+set    293: 4005 D 4003 D
+set    294: 4005 D 4003 D
+set    295: 4005 D 4003 D
+set    296: 4005 D 4003 D 7b03  
+set    297: 4005 D 4003 D 7b03  
+set    298: 4005 D 4003 D
+set    299: 4005 D 4003 D 4235  
+set    300: 4005 D 4003 D
+set    301: 4005 D 4003 D 4235 D
+set    302: 4005 D 4003 D 7b03   4235  
+set    303: 4005 D 4003 D 4235  
+set    304: 4005 D 4003 D 4235 D 7b03 D
+set    305: 4005 D 4003 D 4235   7b03 D
+set    306: 4005 D 4003 D 7b03 D 4235  
+set    307: 4005 D 4003 D 7b03 D
+set    308: 4005 D 4003 D 4235   7b03 D
+set    309: 4005 D 4003 D 7b03 D
+set    310: 4005 D 4003 D 4235   7b03 D
+set    311: 4005 D 4003 D 4235   7b03 D
+set    312: 4005 D 4000   7b03 D 4235  
+set    313: 4005 D 4000  
+set    314: 4005 D 4000   4235   7b03 D
+set    315: 4005 D 4000   7b03 D 4235  
+set    316: 4005 D 4000   7b03 D 4235  
+set    317: 4005 D 4000   7b03 D 4235  
+set    318: 4005 D 4003 D 4000   7b03 D
+set    319: 4003   4005 D 4000   7b03 D
+set    320: 4005 D 4000   7b03 D 4235  
+set    321: 4005 D 4000   7b03 D 4235  
+set    322: 4005 D 4000   7b03 D 4235  
+set    323: 4005 D 4000   4235  
+set    324: 4005 D 4235  
+set    325: 4005 D 7b03 D 4235 D
+set    326: 4005 D 7b03 D 4235  
+set    327: 4003 D 4005 D 4235 D
+set    328: 4005 D 7b03 D
+set    329: 4005 D 4003 D 7b03 D 4235  
+set    330: 4005 D 4235  
+set    331: 4005 D 4003   4235  
+set    332: 4005 D 4235  
+set    333: 4005 D 4235  
+set    334: 4005 D 4235 D
+set    335: 4003 D 4005 D 4235  
+set    336: 4005 D 4235  
+set    337: 4005 D 4235 D
+set    338: 4005 D 4235 D
+set    339: 4005 D 4235 D
+set    340: 4003   4005 D 4235  
+set    341: 4003   4005 D 4235  
+set    342: 4003   4005 D
+set    343: 4005 D 4235  
+set    344: 4003   4005 D 4235  
+set    345: 4005 D 4235  
+set    346: 4005 D 4235 D
+set    347: 4005 D 4235 D
+set    348: 4005 D 4235 D
+set    349: 4003 D 4005 D 4235  
+set    350: 4003 D 4005 D 4235  
+set    351: 4005 D
+set    352: 4005 D
+set    353: 4003   4005 D 4235  
+set    354: 4003   4005 D 4235 D
+set    355: 4003 D 4005 D 4235  
+set    356: 4005 D 4235  
+set    357: 4005 D 4235  
+set    358: 4005 D
+set    359: 4005 D 4003   4235  
+set    360: 4005 D
+set    361: 4005 D
+set    362: 4003 D 4005 D
+set    363: 4003 D 4005 D
+set    364: 4005 D
+set    365: 4005 D
+set    366: 4003 D 4005 D
+set    367: 4003 D 4005 D
+set    368: 4005 D 4003 D
+set    369: 4005 D
+set    370: 4005 D
+set    371: 4005 D
+set    372: 4005 D
+set    373: 4003 D 4005 D
+set    374: 4005 D
+set    375: 4005 D
+set    376: 4005 D
+set    377: 4005 D
+set    378: 4005 D
+set    379: 4003 D 4005 D
+set    380: 4005 D
+set    381: 4005 D
+set    382: 4003 D 4005 D
+set    383: 4005 D
+set    384: 4005 D
+set    385: 4003 D 4005 D
+set    386: 4005 D
+set    387: 4005 D
+set    388: 4005 D
+set    389: 4005 D
+set    390: 4005 D
+set    391: 4005 D
+set    392: 4005 D
+set    393: 4005 D
+set    394: 4005 D
+set    395:
+set    396:
+set    397: 4003 D
+set    398:
+set    399:
+set    400: 4013  
+set    401:
+set    402: 4003 D 4013  
+set    403: 4003 D 4013  
+set    404: 4003   4013 D
+set    405: 4003 D
+set    406: 4003 D
+set    407: 4003 D
+set    408:
+set    409:
+set    410:
+set    411: 4004 D
+set    412: 4004 D
+set    413:
+set    414: 4003 D
+set    415: 4003 D 4013  
+set    416: 4003 D 4013 D
+set    417:
+set    418:
+set    419:
+set    420:
+set    421:
+set    422:
+set    423:
+set    424:
+set    425:
+set    426:
+set    427:
+set    428: 4003 D
+set    429: 4003 D
+set    430: 4003 D
+set    431:
+set    432:
+set    433:
+set    434:
+set    435:
+set    436:
+set    437:
+set    438:
+set    439: 4003 D
+set    440: 4003 D
+set    441:
+set    442:
+set    443:
+set    444:
+set    445:
+set    446:
+set    447:
+set    448:
+set    449:
+set    450:
+set    451:
+set    452:
+set    453:
+set    454:
+set    455:
+set    456:
+set    457:
+set    458:
+set    459:
+set    460:
+set    461:
+set    462:
+set    463:
+set    464:
+set    465:
+set    466:
+set    467:
+set    468:
+set    469: 4002  
+set    470: 4002  
+set    471: 4002  
+set    472: 4002  
+set    473: 4002  
+set    474:
+set    475: 4003  
+set    476: 4003 D 4004  
+set    477: 4004 D
+set    478:
+set    479:
+set    480: df  
+set    481: 4003 D
+set    482:
+set    483: 4003 D
+set    484: 4003 D
+set    485:
+set    486: 4004  
+set    487:
+set    488:
+set    489: 4003 D
+set    490:
+set    491:
+set    492:
+set    493:
+set    494: 4003 D
+set    495: df  
+set    496:
+set    497: df  
+set    498:
+set    499:
+set    500: df  
+set    501:
+set    502:
+set    503: df  
+set    504:
+set    505: df  
+set    506: 4004  
+set    507: 4004  
+set    508: 4004   df  
+set    509: 4004   4003  
+set    510: 4004   df  
+set    511: 4003 D df  
+set    512: df  
+set    513: df  
+set    514:
+set    515:
+set    516: df  
+set    517:
+set    518:
+set    519:
+set    520: 4003  
+set    521: 4004   4003 D
+set    522: 4003 D 4004   df  
+set    523: 4004 D
+set    524: 4004  
+set    525: 4004  
+set    526: 4004   df  
+set    527: 4003   4004 D
+set    528: 4004   df  
+set    529: 4004   df  
+set    530: 4004  
+set    531: df  
+set    532:
+set    533:
+set    534:
+set    535: df  
+set    536: df  
+set    537: df  
+set    538: df  
+set    539:
+set    540: df  
+set    541: df  
+set    542:
+set    543:
+set    544: df  
+set    545: 4013 D
+set    546:
+set    547: df  
+set    548: 4013 D
+set    549: 4013 D
+set    550:
+set    551:
+set    552:
+set    553: df  
+set    554:
+set    555:
+set    556: 4013 D
+set    557:
+set    558:
+set    559:
+set    560:
+set    561:
+set    562:
+set    563:
+set    564:
+set    565:
+set    566:
+set    567:
+set    568: df  
+set    569:
+set    570: 4013 D
+set    571:
+set    572:
+set    573: 4013 D
+set    574:
+set    575:
+set    576: 4013  
+set    577: 4013  
+set    578:
+set    579:
+set    580:
+set    581: 4235  
+set    582:
+set    583:
+set    584:
+set    585: 4002   df  
+set    586: 4002  
+set    587: 4002  
+set    588: 4002  
+set    589:
+set    590:
+set    591: 4003 D
+set    592:
+set    593:
+set    594: 4003 D
+set    595:
+set    596: df  
+set    597: 4013 D
+set    598:
+set    599:
+set    600: 4013  
+set    601:
+set    602:
+set    603:
+set    604:
+set    605:
+set    606: 4013  
+set    607:
+set    608:
+set    609:
+set    610:
+set    611:
+set    612:
+set    613: 4013 D
+set    614:
+set    615:
+set    616:
+set    617: 4013  
+set    618: 4013  
+set    619:
+set    620: df  
+set    621:
+set    622: 4013  
+set    623:
+set    624:
+set    625:
+set    626: 4013  
+set    627: df  
+set    628:
+set    629:
+set    630: 4013   df  
+set    631: 4013 D
+set    632: 4003  
+set    633:
+set    634:
+set    635: 4003 D
+set    636: df  
+set    637:
+set    638:
+set    639:
+set    640:
+set    641:
+set    642:
+set    643:
+set    644: 4213  
+set    645:
+set    646:
+set    647: 4003 D
+set    648: 4003 D
+set    649: 4003 D 4213  
+set    650: df  
+set    651: df  
+set    652:
+set    653:
+set    654: 4003 D
+set    655: 4003 D
+set    656:
+set    657:
+set    658:
+set    659:
+set    660:
+set    661:
+set    662: 4002 D
+set    663:
+set    664: 4002 D
+set    665:
+set    666:
+set    667: df  
+set    668:
+set    669:
+set    670: 4002 D
+set    671: 4003 D 4002  
+set    672: 4002 D
+set    673:
+set    674:
+set    675:
+set    676:
+set    677:
+set    678: df  
+set    679:
+set    680:
+set    681:
+set    682:
+set    683:
+set    684:
+set    685:
+set    686:
+set    687:
+set    688:
+set    689:
+set    690:
+set    691:
+set    692:
+set    693:
+set    694:
+set    695:
+set    696:
+set    697:
+set    698:
+set    699:
+set    700:
+set    701:
+set    702: df  
+set    703:
+set    704:
+set    705:
+set    706:
+set    707:
+set    708:
+set    709: df  
+set    710:
+set    711: df  
+set    712:
+set    713:
+set    714:
+set    715:
+set    716:
+set    717:
+set    718:
+set    719:
+set    720:
+set    721:
+set    722:
+set    723:
+set    724:
+set    725:
+set    726:
+set    727:
+set    728:
+set    729:
+set    730:
+set    731:
+set    732:
+set    733:
+set    734:
+set    735:
+set    736:
+set    737:
+set    738:
+set    739:
+set    740:
+set    741:
+set    742:
+set    743:
+set    744:
+set    745:
+set    746:
+set    747:
+set    748:
+set    749:
+set    750:
+set    751:
+set    752:
+set    753:
+set    754:
+set    755:
+set    756:
+set    757:
+set    758:
+set    759:
+set    760:
+set    761:
+set    762:
+set    763:
+set    764:
+set    765:
+set    766:
+set    767:
+set    768:
+set    769:
+set    770:
+set    771:
+set    772:
+set    773:
+set    774:
+set    775:
+set    776:
+set    777: 4213  
+set    778:
+set    779:
+set    780: 4213  
+set    781: 4214 D
+set    782:
+set    783:
+set    784:
+set    785:
+set    786: 4214 D
+set    787:
+set    788:
+set    789: 4214  
+set    790: 4214 D
+set    791:
+set    792:
+set    793:
+set    794: 4004   4214 D
+set    795: 4004  
+set    796: 4004  
+set    797:
+set    798: 4214 D
+set    799:
+set    800: 4004   4214  
+set    801: 4214 D
+set    802: 4004   4214 D
+set    803: 4003 D 4004  
+set    804: 4214  
+set    805: 4003 D 4214  
+set    806: 4003 D 4214  
+set    807: 4003 D 4214  
+set    808: 4003 D
+set    809: 4003 D
+set    810: 4003 D
+set    811: 4003 D
+set    812: 4003 D
+set    813: 4003 D
+set    814: 4003 D
+set    815: 4003 D
+set    816: 4003 D
+set    817: 4003 D
+set    818: 4003 D
+set    819: 4003 D 423a  
+set    820: 4003 D 4004 D 423a  
+set    821: 4003 D 4004 D 423a  
+set    822: 4003 D 4004   423a D
+set    823: 4003 D 4004   423a D
+set    824: 4003 D 4004   423a  
+set    825: 4003 D 4004   423a  
+set    826: 4003 D 423a  
+set    827: 4003 D 423a D
+set    828: 4001   4003 D 423a   df  
+set    829: 4001   4003 D 4004   df  
+set    830: 4001   4003 D df  
+set    831: 4001   4003 D
+set    832: 4003 D
+set    833: 4003 D df  
+set    834: 4003 D
+set    835: 4003 D
+set    836: 4003 D df  
+set    837: 4003 D
+set    838: 4003 D
+set    839: 4003 D 4004   df  
+set    840: 4003 D
+set    841: 4003 D
+set    842: 4002 D 4003 D 4004 D df  
+set    843: 4003 D 4004   4002 D 423a  
+set    844: 4003 D 4004  
+set    845: 4003 D 4004  
+set    846: 4003 D
+set    847: 4003 D
+set    848: 4003 D
+set    849: 4003 D
+set    850: 4003 D
+set    851: 4003 D
+set    852: 4003 D
+set    853: 4003 D
+set    854: 4003 D
+set    855: 4003 D
+set    856: 4003 D
+set    857: 4003 D
+set    858: 4003 D
+set    859: 4003 D
+set    860: 4003 D
+set    861: 4003 D
+set    862: 4003 D
+set    863: 4003 D
+set    864: 4003 D
+set    865: 4003 D
+set    866: 4003 D
+set    867: 4003 D
+set    868: 4003 D
+set    869: 4003 D
+set    870: 4003 D
+set    871: 4003 D
+set    872: 4003 D
+set    873: 4003 D
+set    874: 4003 D
+set    875: 4003 D 423a  
+set    876: 4003 D
+set    877: 4003 D
+set    878: 4003 D
+set    879: 4003 D
+set    880: 4003 D
+set    881: 4003 D
+set    882: 4003 D
+set    883: 4003 D
+set    884: 4003 D
+set    885: 4003 D 4004  
+set    886: 4003 D
+set    887: 4003 D
+set    888: 4003 D 4004  
+set    889: 4003 D
+set    890: 4003 D 4004  
+set    891: 4003 D 4004  
+set    892: 4003 D
+set    893: 4003 D
+set    894: 4003 D 4004 D
+set    895: 4003 D 4004  
+set    896: 4003 D 4004 D
+set    897: 4003 D 423a  
+set    898: 4003 D 4004 D
+set    899: 4003 D 4004 D
+set    900: 4003 D 4004 D
+set    901: 4003 D 4004 D
+set    902: 4003 D 4004 D
+set    903: 4003 D 4004 D
+set    904: 4003 D 4004 D
+set    905: 4003 D 4004 D
+set    906: 4003 D 4004 D
+set    907: 4003 D 4004 D
+set    908: 4003 D 4004 D
+set    909: 4003 D 4004 D
+set    910: 4003 D 4004 D
+set    911: 4003 D 4004 D
+set    912: 4003 D 4004 D 423a D
+set    913: 4003 D 4004 D 423a  
+set    914: 4003 D 4004 D 423a  
+set    915: 4003 D 4004 D
+set    916: 4003 D 4004 D
+set    917: 4003 D 4004 D
+set    918: 4003 D 4004 D
+set    919: 4004 D 4003 D
+set    920: 4003 D 4004 D
+set    921: 4003 D 4004 D
+set    922: 4003 D 4004 D
+set    923: 4004 D
+set    924: 4004 D
+set    925: 4004 D
+set    926: 4004 D
+set    927: 4004 D
+set    928: 4003 D 4004 D
+set    929: 4004 D
+set    930: 4004 D
+set    931: 4004 D
+set    932: 4004 D
+set    933: 4004 D
+set    934: 4003 D 4004 D
+set    935: 4004 D
+set    936: 4004 D
+set    937: 4004 D
+set    938: 4004 D
+set    939: 4004 D
+set    940: 4004 D
+set    941: 4004 D 423a  
+set    942: 4003 D 4004 D 423a D
+set    943: 4003 D 4004 D 423a  
+set    944: 4004 D 4003 D 423a D
+set    945: 4003 D 4004 D 423a D
+set    946: 4004 D 4003 D 423a  
+set    947: 4003 D 4004 D
+set    948: 4004 D
+set    949: 4004 D
+set    950: 4004 D
+set    951: 4004 D
+set    952: 4004 D
+set    953: 4003 D 4004 D
+set    954: 4004 D
+set    955: 4004 D
+set    956: 4003 D 4001   4004 D
+set    957: 4001   4004 D
+set    958: 4001   4004 D
+set    959: 4001   4004 D
+set    960: 4003 D 4004 D
+set    961: 4004 D
+set    962: 4001   4004 D
+set    963: 4004 D 4001  
+set    964: 4004 D 4001  
+set    965: 4004 D 4001  
+set    966: 4001   4004 D
+set    967: 4003   4004 D 4001  
+set    968: 4004 D
+set    969: 4004 D 423a  
+set    970: 4001   4004 D 423a  
+set    971: 4001   4004 D 423a  
+set    972: 4001   4002 D 4004 D
+set    973: 4004 D
+set    974: 4002 D 4004 D
+set    975: 4004 D
+set    976: 4002 D 4004 D
+set    977: 4002 D 4004 D
+set    978: 4001   4002 D 4004 D
+set    979: 4001   4002 D 4004 D
+set    980: 4001   4004 D
+set    981: 4001   4004 D
+set    982: 4004 D
+set    983: 4002   4004 D
+set    984: 4001   4004 D
+set    985: 4004 D
+set    986: 4004 D
+set    987: 4002 D 4004 D
+set    988: 4002   4004 D
+set    989: 4002 D 4004 D
+set    990: 4002 D 4004 D
+set    991: 4002 D 4004 D
+set    992: 4002 D 4004 D
+set    993: 4002 D 4004 D
+set    994: 4002 D 4004 D
+set    995: 4002 D 4004 D
+set    996: 4003 D 4002 D 4004 D
+set    997: 4003   4002 D 4004 D
+set    998: 4002 D 4004 D
+set    999: 4003 D 4002 D 4004 D
+set   1000: 4003 D 4002 D 4004 D
+set   1001: 4003 D 4002 D 4004 D
+set   1002: 4003 D 4002 D 4004 D
+set   1003: 4002 D 4003   4004 D
+set   1004: 4003 D 4002 D 4004 D
+set   1005: 4002 D 4004 D 423a  
+set   1006: 4003 D 4002 D 4004 D
+set   1007: 4003 D 4002 D 4004 D 423a  
+set   1008: 4002 D 4004 D
+set   1009: 4002 D 4004 D
+set   1010: 4002 D 4004 D 423a  
+set   1011: 4003 D 4002 D 4004 D 423a D
+set   1012: 4003 D 4002 D 4004 D 423a  
+set   1013: 4002 D 4004 D 423a D
+set   1014: 4003 D 4002 D 4004 D 423a D
+set   1015: 4002 D 4004 D 4239  
+set   1016: 4002 D 4004 D
+set   1017: 4002 D 4004 D
+set   1018: 4002 D 4004 D 423a D
+set   1019: 4003 D 4002 D 4004 D 423a  
+set   1020: 4002 D 4004 D
+set   1021: 4002 D 4004 D 423a  
+set   1022: 4002 D 4004 D
+set   1023: 4002 D 4004 D
+
+===== Measurements =====
+a. L1 reads:                   63640
+b. L1 read misses:             4838
+c. L1 writes:                  36360
+d. L1 write misses:            3001
+e. L1 miss rate:               0.0784
+f. L1 writebacks:              3526
+g. L1 prefetches:              0
+h. L2 reads (demand):          7839
+i. L2 read misses (demand):    1452
+j. L2 reads (prefetch):        0
+k. L2 read misses (prefetch):  0
+l. L2 writes:                  3526
+m. L2 write misses:            0
+n. L2 miss rate:               0.1852
+o. L2 writebacks:              2
+p. L2 prefetches:              0
+q. memory traffic:             1454

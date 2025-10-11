@@ -1,0 +1,158 @@
+===== Simulator configuration =====
+BLOCKSIZE:  16
+L1_SIZE:    2048
+L1_ASSOC:   1
+L2_SIZE:    0
+L2_ASSOC:   0
+PREF_N:     0
+PREF_M:     0
+trace_file: ../traces/gcc_trace.txt
+
+===== L1 contents =====
+set      0: 80066 D
+set      1: 80066 D
+set      2: 80066 D
+set      3: 80066 D
+set      4: 80066 D
+set      5: 80066 D
+set      6: 800a3 D
+set      7: 8006b D
+set      8: 800a3 D
+set      9: 800a3 D
+set     10: 800a3 D
+set     11: 800a3 D
+set     12: 8006b D
+set     13: 800a3 D
+set     14: 8006b  
+set     15: 800a3 D
+set     16: f6067 D
+set     17: 800a3 D
+set     18: 800a3 D
+set     19: f6067 D
+set     20: 8007f D
+set     21: 80085 D
+set     22: 80085 D
+set     23: 800a3 D
+set     24: 800a3 D
+set     25: 800a3 D
+set     26: 800a3 D
+set     27: 800a3 D
+set     28: 800a3 D
+set     29: 800a3 D
+set     30: 800a3 D
+set     31: 8007e D
+set     32: 800a3 D
+set     33: 800a3 D
+set     34: 80070 D
+set     35: 800a3 D
+set     36: 800a3  
+set     37: 80070  
+set     38: 800a3 D
+set     39: 800a3 D
+set     40: 80052  
+set     41: 8003e  
+set     42: 800a3 D
+set     43: 80002  
+set     44: 80002  
+set     45: 80002  
+set     46: 80002  
+set     47: 80002  
+set     48: 80002  
+set     49: 80002  
+set     50: 80002  
+set     51: 80002  
+set     52: 80002  
+set     53: 80002  
+set     54: 80002  
+set     55: 800a3 D
+set     56: 800a3 D
+set     57: 800a3 D
+set     58: 800a3 D
+set     59: 800a3 D
+set     60: 800a3 D
+set     61: 80063 D
+set     62: 80063 D
+set     63: 80063 D
+set     64: 80062  
+set     65: 800a3 D
+set     66: 800a3 D
+set     67: 800a3 D
+set     68: 80062  
+set     69: 80062  
+set     70: 800a3 D
+set     71: 80062  
+set     72: 80062  
+set     73: 8005e D
+set     74: 8005e  
+set     75: 80062  
+set     76: 8006c D
+set     77: 80062  
+set     78: 8003e  
+set     79: 8006c D
+set     80: 8006c D
+set     81: 8003e  
+set     82: 8003e  
+set     83: 8006c D
+set     84: 8003e  
+set     85: 8006a  
+set     86: 8006a  
+set     87: 8004e  
+set     88: 8007c  
+set     89: 8006a  
+set     90: 8006c D
+set     91: 8004e  
+set     92: 8004e  
+set     93: 8004e  
+set     94: 80088 D
+set     95: 8004e  
+set     96: 80073  
+set     97: 8006a  
+set     98: 80054 D
+set     99: 8004e  
+set    100: 80088 D
+set    101: 8004e  
+set    102: 800a2 D
+set    103: 800a2 D
+set    104: 80063 D
+set    105: 80063 D
+set    106: 8008f  
+set    107: 8008f  
+set    108: 8008f  
+set    109: 8008f  
+set    110: 8008f  
+set    111: 8008f  
+set    112: 8008f  
+set    113: 8005e D
+set    114: 8008f  
+set    115: 8008f  
+set    116: 8008f  
+set    117: 8008f  
+set    118: 8008f  
+set    119: 8006a  
+set    120: 80063 D
+set    121: 8006a  
+set    122: 8006c D
+set    123: 8006c D
+set    124: 80069 D
+set    125: 800a2 D
+set    126: 80065 D
+set    127: 80065 D
+
+===== Measurements =====
+a. L1 reads:                   63640
+b. L1 read misses:             7763
+c. L1 writes:                  36360
+d. L1 write misses:            7296
+e. L1 miss rate:               0.1506
+f. L1 writebacks:              8150
+g. L1 prefetches:              0
+h. L2 reads (demand):          0
+i. L2 read misses (demand):    0
+j. L2 reads (prefetch):        0
+k. L2 read misses (prefetch):  0
+l. L2 writes:                  0
+m. L2 write misses:            0
+n. L2 miss rate:               0.0000
+o. L2 writebacks:              0
+p. L2 prefetches:              0
+q. memory traffic:             23209

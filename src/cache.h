@@ -16,10 +16,10 @@ public:
 
     void set_next(Cache* n) { next = n; }
 
-    // Demand access from the CPU or an upper cache (write-back, write-allocate).
+    // Get ACcess from CPU or (WB,WA)
     bool access(uint32_t addr, Op op);
 
-    // Dirty block delivered from above.
+    // Dirty block from above.
     bool writeback(uint32_t addr);
 
     void print_contents(const std::string& title) const;
@@ -39,7 +39,7 @@ private:
         bool dirty = false;
         uint32_t tag = 0;
     };
-    using Set = std::list<Line>;   // I keep MRU lines at the front, LRU lines at the back.
+    using Set = std::list<Line>;   // Keep MRU lines at the front, LRU == back.
 
     // configuration / geometry
     uint32_t sizeB, ways, blkB;
@@ -56,9 +56,11 @@ private:
     inline uint32_t idx_of(uint32_t addr) const {
         return (index_bits==0) ? 0 : ((addr >> offset_bits) & index_mask);
     }
+
     inline uint32_t tag_of(uint32_t addr) const {
         return  (addr >> (offset_bits + index_bits));
     }
+
     inline uint32_t blk_addr(uint32_t tag, uint32_t idx) const {
         return ( (tag << (index_bits + offset_bits)) | (idx << offset_bits) );
     }

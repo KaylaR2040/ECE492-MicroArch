@@ -1,0 +1,9 @@
+{
+  "BLOCKSIZE": 16,
+  "L1_SIZE": 64,
+  "L1_ASSOC": 1,
+  "L2_SIZE": 512,
+  "L2_ASSOC": 2,
+  "PREF_N": 2,
+  "PREF_M": 1
+}

@@ -1,0 +1,62 @@
+===== Simulator configuration =====
+BLOCKSIZE:  128
+L1_SIZE:    16384
+L1_ASSOC:   4
+L2_SIZE:    0
+L2_ASSOC:   0
+PREF_N:     0
+PREF_M:     0
+trace_file: /Users/kaylaradu/GitHubRepos/GitNCSU/ECE492-MicroArch/traces/gcc_trace.txt
+
+===== L1 contents =====
+set      0: 40033 D 4003f D 40036 D 40055 D
+set      1: 4001f   40056 D 40053 D 40055 D
+set      2: 40056 D 40054 D 40055 D 40053 D
+set      3: 4003f D 40035 D 4001f   4003a D
+set      4: 40038 D 40048   40029   4003a D
+set      5: 40001   4001f   40029   40056 D
+set      6: 40001   4001f   40029   40053 D
+set      7: 40035 D 40031 D 4003a D 40038  
+set      8: 40031   4002f D 40054 D 40051 D
+set      9: 4002f D 4001f   40031   40036 D
+set     10: 4001f   40027   40036 D 40035  
+set     11: 40027   4003e   40035   40031 D
+set     12: 40044 D 4002a D 40027   4001f  
+set     13: 40037 D 4003e D 4002f D 40044 D
+set     14: 40035 D 4002f D 40037 D 40051 D
+set     15: 40035 D 40036 D 40051 D 40055 D
+set     16: 40035 D 4003e D 40036 D 40051 D
+set     17: 40035 D 40051 D 4003c D 40037 D
+set     18: 40042 D 7b033 D 4003f D 40051 D
+set     19: 40051 D 4003e D 4003f D 40055 D
+set     20: 40051 D 4003f D 40037 D 7b033 D
+set     21: 40051 D 40035 D 40054 D 40055 D
+set     22: 40051 D 40031 D 4003f D 40036 D
+set     23: 40031 D 40051 D 40035 D 4003f D
+set     24: 40051 D 40055 D 40053 D 40033 D
+set     25: 40051 D 4003e D 40055 D 4003f D
+set     26: 40035   40054 D 40055 D 40053 D
+set     27: 4003f D 40054 D 40055 D 40036 D
+set     28: 40039   4003e D 40055 D 40036 D
+set     29: 40031 D 40047   40035 D 40054 D
+set     30: 40047   40031 D 4003e D 4001e  
+set     31: 40031 D 40047   40032 D 40034 D
+
+===== Measurements =====
+a. L1 reads:                   63640
+b. L1 read misses:             1175
+c. L1 writes:                  36360
+d. L1 write misses:            807
+e. L1 miss rate:               0.0198
+f. L1 writebacks:              921
+g. L1 prefetches:              0
+h. L2 reads (demand):          0
+i. L2 read misses (demand):    0
+j. L2 reads (prefetch):        0
+k. L2 read misses (prefetch):  0
+l. L2 writes:                  0
+m. L2 write misses:            0
+n. L2 miss rate:               0.0000
+o. L2 writebacks:              0
+p. L2 prefetches:              0
+q. memory traffic:             2903

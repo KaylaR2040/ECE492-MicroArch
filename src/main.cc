@@ -7,13 +7,15 @@
 int main(int argc, char* argv[]) {
     CacheParams P;
     std::string err;
-    if (!parse_args(argc, argv, P, err)) {
+    if (!parse_args(argc, argv, P, err)) 
+    {
         std::cerr << "Error: " << err << "\n";
         return 1;
     }
 
     FILE* fp = nullptr;
-    if (!open_trace(P.trace_file, fp)) {
+    if (!open_trace(P.trace_file, fp)) 
+    {
         std::cerr << "Error: Unable to open file " << P.trace_file << "\n";
         return 1;
     }
@@ -21,14 +23,16 @@ int main(int argc, char* argv[]) {
     print_config(P);
 
     std::unique_ptr<Cache> L2;
-    if (P.L2_SIZE > 0) {
+    if (P.L2_SIZE > 0) 
+    {
         L2 = std::make_unique<Cache>(P.L2_SIZE, P.L2_ASSOC, P.BLOCKSIZE, nullptr);
     }
     Cache L1(P.L1_SIZE, P.L1_ASSOC, P.BLOCKSIZE, L2.get());
 
-    // I drive the hierarchy strictly top-down so every request starts in L1.
+    // TO DO: Implement top-down to start at L1
     Op op; uint32_t addr;
-    while (read_trace_line(fp, op, addr)) {
+    while (read_trace_line(fp, op, addr)) 
+    {
         L1.access(addr, op);
     }
     std::fclose(fp);
