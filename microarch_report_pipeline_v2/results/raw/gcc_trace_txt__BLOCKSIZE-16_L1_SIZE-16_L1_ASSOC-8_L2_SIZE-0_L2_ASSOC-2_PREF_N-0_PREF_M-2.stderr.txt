@@ -1,1 +1,0 @@
-Error: L1 geometry invalid: SIZE must be a multiple of BLOCKSIZE*ASSOC.
