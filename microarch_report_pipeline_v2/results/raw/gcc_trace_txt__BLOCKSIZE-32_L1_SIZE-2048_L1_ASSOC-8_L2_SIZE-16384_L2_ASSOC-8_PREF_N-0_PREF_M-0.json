@@ -1,9 +1,0 @@
-{
-  "BLOCKSIZE": 32,
-  "L1_SIZE": 2048,
-  "L1_ASSOC": 8,
-  "L2_SIZE": 16384,
-  "L2_ASSOC": 8,
-  "PREF_N": 0,
-  "PREF_M": 0
-}
